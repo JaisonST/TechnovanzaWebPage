@@ -3,13 +3,13 @@ function autoLogin() {
     if (getCookie("user_id") !== "") {
         if(!document.baseURI.includes('/home.html')){
             console.log("The cookie is not null");
-            location.replace('/home.html');
+            location.replace('/html/home.html');
         }
     }
     else {
         if(!document.baseURI.includes('/index.html')){
             console.log("The cookie is null");          
-            window.location.href = "/index.html";
+            window.location.href = "/html/index.html";
         }
     }
 }

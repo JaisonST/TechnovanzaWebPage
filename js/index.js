@@ -1,16 +1,23 @@
-async function request(url, data, method="POST", email) {
-    const response = await fetch(url, {
+function request(url, data, method) {
+    console.log(url);
+    console.log(data);
+
+    fetch(url, {
         method: method,
+        body: data,
         headers: {
             'Content-Type': 'application/json'
-        },
-        body: data,
-    }).then(res => {
-        if (res.status == 200) {
-            date = new Date();
-            document.cookie = `user_email=${email}; expires=` + date.getDate() + 1;
-            window.location = '/home.html';
         }
+    }).then(res => {
+        console.log(res);
+        if (res.status == 200) {
+            var date = new Date();
+            date.setTime(date.getTime() + (2 * 24 * 60 * 60 * 1000));
+            document.cookie = `user_email=${email}; expires=` + date.toGMTString();
+            $('#myModal').modal('hide');
+
+            window.location = '/html/home.html';
+       }
         else {
             showAlert();
         }
@@ -33,21 +40,20 @@ function register_user() {
     //Validate entries      
     if (validate(email.value, password.value)) {
         //Make request 
-        request(`${process.env.API_BASE}/register`, convertToJSON(["usernameTextField", "emailTextField", "passwordTextField"]), email.value);
+        request('https://www.technovanza-api.tk/register', convertToJSON(["usernameTextField", "emailTextField", "passwordTextField"]), "POST");
     }
 
     // Clear text fields 
     username.value = '';
     password.value = '';
     email.value = '';
-
 }
 
 function login_user() {
     email = document.getElementById("email");
     password = document.getElementById("password");
 
-    request(`${process.env.API_BASE}/login`, convertToJSON(["email", "password"]), email.value);
+    request('https://www.technovanza-api.tk/login', convertToJSON(["email", "password"]), "POST", email.value);
 
     // Clear text fields 
     password.value = '';
