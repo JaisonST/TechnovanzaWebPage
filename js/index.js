@@ -1,4 +1,4 @@
-async function request(url, data, method="POST", email) {
+async function request(url, data, method, email) {
     const response = await fetch(url, {
         method: method,
         headers: {
@@ -34,7 +34,7 @@ function register_user() {
     //Validate entries      
     if (validate(email.value, password.value)) {
         //Make request 
-        request(`${process.env.API_BASE}/register`, convertToJSON(["usernameTextField", "emailTextField", "passwordTextField"]), email.value);
+        request(`${process.env.API_BASE}/register`, convertToJSON(["usernameTextField", "emailTextField", "passwordTextField"]), "POST", email.value);
     }
 
     // Clear text fields 
@@ -48,7 +48,7 @@ function login_user() {
     email = document.getElementById("email");
     password = document.getElementById("password");
 
-    request(`${process.env.API_BASE}/login`, convertToJSON(["email", "password"]), email.value);
+    request(`${process.env.API_BASE}/login`, convertToJSON(["email", "password"]), "POST", email.value);
 
     // Clear text fields 
     password.value = '';
