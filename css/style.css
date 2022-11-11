@@ -1,0 +1,29 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Modal styling */
+.register,
+.login {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.modal-dialog {
+    -webkit-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    top: 15%;
+    margin: 0 auto;
+}
+
+/* Home page events section styling */
+.events {
+    padding: 1rem;
+}
+
+.list-group-item {
+    margin-bottom: 5px;
+    border: 2px solid black;
+}
