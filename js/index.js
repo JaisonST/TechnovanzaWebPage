@@ -6,6 +6,7 @@ async function request(url, data, method="POST", email) {
         },
         body: data,
     }).then(res => {
+        // Only for registration
         if (res.status == 200) {
             date = new Date();
             document.cookie = `user_email=${email}; expires=` + date.getDate() + 1;
