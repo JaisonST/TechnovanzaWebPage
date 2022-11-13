@@ -1,6 +1,6 @@
 //Get cookie - on login 
 function autoLogin() {
-    if (getCookie("user_id") !== "") {
+    if (getCookie("user_email") !== "") {
         if(!document.baseURI.includes('/home.html')){
             console.log("The cookie is not null");
             location.replace('/html/home.html');
