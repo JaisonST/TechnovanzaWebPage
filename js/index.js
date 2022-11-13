@@ -31,10 +31,14 @@ function handle_response(res, message, modal_id){
     res.then(user => {
         if (user.status == 200) {
             user.data.then(user_data => {
+                if(modal_id == "#registerModal"){
+                    showAlert(modal_id, "You have successfully registered", "success", "Registered");
+                }
+
                 var date = new Date();
                 date.setTime(date.getTime() + (2 * 24 * 60 * 60 * 1000));
                 document.cookie = `user_email=${user_data["user_data"]["email"]}; expires=` + date.toGMTString();
-                $(modal_id).modal('hide');
+                // $(modal_id).modal('hide');
                 
                 window.location = '/html/home.html';
             });

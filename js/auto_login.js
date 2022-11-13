@@ -33,4 +33,5 @@ function getCookie(cname) {
 //Delete cookie - on logout 
 function eraseCookie(name) {
     document.cookie = name + '=; Max-Age=0';
+    autoLogin();
 }

@@ -8,23 +8,18 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <style>
-        body {
-            padding: 30px;
-        }
 
-        .card {
-            margin-right: 20px;
-            margin-bottom: 20px;
-        }
+    <!-- Sweet Alert -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        .hide{
-            display: none;
-        }
-    </style>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/css/events_style.css">
 </head>
 
 <body onload="load_events();">
+    <!-- Events section -->
     <div id="events" class="d-flex flex-wrap justify-content-center">
 
     </div>
@@ -52,7 +47,7 @@
                                 <label>Team Name</label>
                             </div>
                             <div class="d-flex align-items-center">
-                                <input id="TeamName" type="text" name="team" class="form-control form-control-md"
+                                <input id="TeamName" type="text" name="team_name" class="form-control form-control-md"
                                     placeholder="Team Name" required>
                                 <input id="EventName" type="text" name="event" class="form-control form-control-md"
                                     hidden>
@@ -89,6 +84,7 @@
 
 </body>
 <script src="/events_list.js"></script>
+<script src="/js/helper.js"></script>
 <script src="/js/event_create.js"></script>
 
 </html>

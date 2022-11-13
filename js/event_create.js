@@ -1,9 +1,9 @@
 const eventsSection = document.getElementById("events");
+var isTeam = 0;
 
 events.forEach(element => {
     eventsSection.innerHTML += `
         <div class="card" style="width: 35rem;" id=${element.id}>
-        <img class="card-img-top" src="${element.src}" alt="Card image cap" height="600px">
             <div class="card-body">
                 <h5 class="card-title">${element.name}</h5>
                 <h6 class="card-subtitle text-muted">${element.room}</h6>
@@ -28,32 +28,51 @@ function load_events() {
     Array.from(event_reg).forEach(element => {
         element.addEventListener('click', (e) => {
             e.preventDefault();
-            console.log("Added listener to " + element.id);
             createMembers(element.id.at(-1));
         })
     });
 }
 
-function createMembers(id){
+
+// UPDATED createMembers() FUNCTION
+// 1. Team name visibility 
+// 2. Clear Modal on reload before creating teamm member details
+
+// Takes the number of team members and creates a multiple member name and email textfields
+function createMembers(id) {
+
     var eventName = document.getElementById("eventName");
     var EventName = document.getElementById("EventName");
-    EventName.setAttribute('value', `${events[id-1]["name"]}`);
-    eventName.innerHTML = `${events[id-1]["name"]}`;
+    formatted_name = events[id - 1]["name"].replaceAll(' ', '_');
+    EventName.setAttribute('value', formatted_name);
+    eventName.innerHTML = `${events[id - 1]["name"]}`;
 
-    // Checking if event requires a team 
-    if(events[id-1]["isTeam"] > 1){
-        
+    isTeam = parseInt(events[id - 1]["isTeam"]);
+    // 1. Checking if event requires a team & toggles visiblity of Team Name
+    var teamNameInp = document.querySelector("#teamNameInp");
+    if (isTeam > 1)
+        teamNameInp.removeAttribute("hidden");
+    else {
+        teamNameInp.setAttribute("hidden", '');
+        teamNameInp.removeAttribute("required");
     }
 
-    var memberNo = document.getElementById("members_no");
-    var memberNames = document.getElementById("members_name");
-    var memberEmails = document.getElementById("members_email");
+    // Selecting Team Member No, Name and Email parent divs from Modal
+    var memberNo = document.querySelector("#members_no");
+    var memberNames = document.querySelector("#members_name");
+    var memberEmails = document.querySelector("#members_email");
 
-    for(let i = 1; i <=  parseInt(events[id]["isTeam"]); i++ )
-    {
-        var newLabel = document.createElement('div');
-        newLabel.innerHTML = "# " + i.toString();
+    // 2. Clear Team Member No, Name and Email from Modal
+    DeleteChildElements("members_no");
+    DeleteChildElements("members_name");
+    DeleteChildElements("members_email");
+
+    for (let i = 1; i <= parseInt(events[id - 1]["isTeam"]); i++) {
+        var newLabel = document.createElement('input');
+        newLabel.value = "# " + i.toString();
+        newLabel.setAttribute('type', 'text');
         newLabel.setAttribute('class', 'form-control form-control-md mb-2');
+        newLabel.setAttribute('readonly', '');
 
         memberNo.appendChild(newLabel);
 
@@ -62,6 +81,7 @@ function createMembers(id){
         newNameField.setAttribute('name', 'names[]');
         newNameField.setAttribute('class', 'form-control form-control-md mb-2');
         newNameField.setAttribute('placeholder', 'Name');
+        newNameField.setAttribute('required', '');
 
         memberNames.append(newNameField);
 
@@ -71,42 +91,31 @@ function createMembers(id){
         newEmailField.setAttribute('class', 'form-control form-control-md mb-2');
         newEmailField.setAttribute('placeholder', 'Email');
         newEmailField.setAttribute('required', '');
-        
+
         memberEmails.append(newEmailField);
     }
 }
 
-// Takes given list of element ids, extract name & value property & converts into object  
-function convertToJSON(keys){
-    jsonObj = {};
-    keys.forEach(element => {
-        key = document.getElementById(element);
-        if( element == "members_email" ){
-            var emails = [];
-            $('#members_email input').each(function () {
-                emails.push(this.value);
-            });
-            
-            console.log(emails);
-            jsonObj["members"] = emails;
-        }
-        else
-            jsonObj[key.name] = key.value;
-    });
+function register_team() {
 
-    return JSON.stringify(jsonObj);
-}
+    //Validate entries
 
-
-function register_team(){
-    
-    console.log("In register team");        
-
-    var JSON = convertToJSON(["TeamName","EventName", "members_email"]);
-    console.log(JSON);  
-    
     // //Make request 
-    // request('http://172.22.194.82:3000/events/registration', JSON, "POST");
+    res = request('https://www.technovanza-api.tk/events/registration', convertToJSON(["TeamName", "EventName", "members_email"]), "POST");
+    console.log(res);
+    res.then(event => {
+        if (event.status == 200) {
+            event.data.then(event_data => {
+                showAlert("#eventModal", "You have successfully registered for the event", "success", "Registered");
+                // $(modal_id).modal('hide');
+            });
+        }
+        else{
+            event.data.then(error_message =>{
+                showAlert("#myModal", "Registration failed: " + error_message["error"], 'error', 'Error occured!...');
+            });
+        }
+    });
 }
 
 //eventName
