@@ -48,9 +48,8 @@ function convertToJSON(keys) {
 
 // POST/GET requests
 async function request(url, data, method) {
-    console.log(url);
+    console.log(url)
     console.log(data);
-
     const res = await fetch(url, {
         method: method,
         headers: {
@@ -69,12 +68,12 @@ async function request(url, data, method) {
 
 // Function to show alert using Sweet Alert
 function showAlert(modal_id, text, icon, title) {
-    $(modal_id).modal('hide');
+    closeModal();
     Swal.fire({
         icon: icon,
         title: title,
         text: text,
-        confirmButtonColor: '#5cbdaa',
+        confirmButtonColor: '#66aedf',
     })
 }
 

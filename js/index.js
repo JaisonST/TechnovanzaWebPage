@@ -1,10 +1,10 @@
 function register_user() {
     //Validate entries      
     if (validate(email.value, password.value)) {
+        console.log
         //Make request 
         res = request('https://www.technovanza-api.tk/register', convertToJSON(["usernameTextField", "emailTextField", "passwordTextField"]), "POST");
         handle_response(res, "User registration failed", "#registerModal");
-        
     }
 
     // Clear text fields 
@@ -37,8 +37,18 @@ function handle_response(res, message, modal_id){
 
                 var date = new Date();
                 date.setTime(date.getTime() + (2 * 24 * 60 * 60 * 1000));
+                if(user_data["user_data"]["isVolunteer"]){
+                    document.cookie = `user_isVolunteer=${user_data["user_data"]["isVolunteer"]}; expires=` + date.toGMTString();
+                }
+                
+                if(user_data["user_data"]["isJudge"]){
+                    document.cookie = `user_isJudge=${user_data["user_data"]["isJudge"]}; expires=` + date.toGMTString();
+                }
+
                 document.cookie = `user_email=${user_data["user_data"]["email"]}; expires=` + date.toGMTString();
-                // $(modal_id).modal('hide');
+                document.cookie = `user_name=${user_data["user_data"]["name"]}; expires=` + date.toGMTString();
+                document.cookie = `user_id=${user_data["user_data"]["id"]}; expires=` + date.toGMTString();
+                document.cookie = `user_role=${user_data["user_data"]["role"]}; expires=` + date.toGMTString();
                 
                 window.location = '/html/home.html';
             });
@@ -64,18 +74,22 @@ function validate(email, password) {
     emailValidation = document.getElementById("emailValidation");
     if (!(re.test(email))) {
         emailValidation.innerHTML = "Please enter a valid email id";
+        emailValidation.removeAttribute("hidden");
     }
     else {
         emailValidation.innerHTML = "";
+        emailValidation.setAttribute("hidden", "");
         flag += 1;
     }
 
     passwordValidation = document.getElementById("passwordValidation");
     if (!pre.test(password)) {
         passwordValidation.innerHTML = "Password should be atleast 8 characters, containing atleast 1 digit, uppercase letter and special character";
+        passwordValidation.removeAttribute("hidden");
     }
     else {
         passwordValidation.innerHTML = "";
+        passwordValidation.setAttribute("hidden", "");
         flag += 1;
     }
 

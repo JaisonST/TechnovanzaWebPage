@@ -3,7 +3,7 @@ body {
 }
 
 /* Modal styling */
-.register,
+/* .register,
 .login {
     display: flex;
     flex-direction: column;
@@ -16,18 +16,18 @@ body {
     transform: translate(0, -50%);
     top: 15%;
     margin: 0 auto;
-}
+} */
 
 #passwordValidation, #emailValidation{
     color: red;
 }
 
 /* Home page events section styling */
-.events {
+/* .events {
     padding: 1rem;
 }
 
 .list-group-item {
     margin-bottom: 5px;
     border: 2px solid black;
-}
+} */

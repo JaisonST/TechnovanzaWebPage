@@ -7,19 +7,21 @@ const events = [
         "faculty_coordinator": "Dr. Amit Mondal",
         "student_coordinators": "Bilal | Joravar",
         "room": "B301",
-        "time": "16th : 11:00 am - 3:00 pm & 6:30 pm - 8:30 pm | 17th : 10:00 am - 1:00 pm",
+        "day1": "16th : 11:00 am - 3:00 pm & 6:30 pm - 8:30 pm",
+        "day2": "17th : 10:00 am - 1:00 pm",
         "judging_criteria": "Time",
         "src" : "/css/posters/Lazer_maze.gif"
     },
     {
         "id" : 2, 
-        "name": "Electrifying Treasure (Electrothon)",
+        "name": "Electrothon",
         "desc": "Three mini games - buzzwire, japanese electronic game and carnival shooting game. Arduino circuit building.",
         "isTeam": 1,
         "faculty_coordinator": "Dr. Ravishankar Dudhe",
         "student_coordinators": "Silah | Rayyan",
         "room": "B309",
-        "time": "16th : 2:30 pm - 5:00 pm | 17th : 10:00 am - 3:00 pm",
+        "day1": "16th : 2:30 pm - 5:00 pm ",
+        "day2": "17th : 10:00 am - 3:00 pm",
         "judging_criteria": "Time",
         "src" : "/css/posters/Electrothon.gif"
     },
@@ -31,7 +33,8 @@ const events = [
         "faculty_coordinator": "Dr. Ravishankar Dudhe",
         "student_coordinators": "Noel | Karan",
         "room": "B311",
-        "time": "16th : 3:00 pm - 6:00 pm | 17th : 10:00 am - 3:00 pm",
+        "day1": "16th : 3:00 pm - 6:00 pm",
+        "day2": "17th : 10:00 am - 3:00 pm",
         "judging_criteria": "Goals",
         "src" : "/css/posters/Neon_Rocket.png"
     },
@@ -43,7 +46,8 @@ const events = [
         "faculty_coordinator": "Sampath Suranjan",
         "student_coordinators": "Ahmed Fazal | Raj P",
         "room": "Basketball court",
-        "time": "17th : 10:30 am - 1:30 pm",
+        "day1": "17th : 10:30 am - 1:30 pm",
+        "day2": "",
         "judging_criteria": "Flight Time and Distance",
         "src" : "/css/posters/HYDROJET.jpeg"
     },
@@ -55,7 +59,8 @@ const events = [
         "faculty_coordinator": "Sampath Suranjan",
         "student_coordinators": "Krishna Prasad | Pratyush",
         "room": "B411, B405",
-        "time": "16th : 10:30 am - 1:00 pm",
+        "day1": "16th : 10:30 am - 1:00 pm",
+        "day2": "",
         "judging_criteria": "Temperature, Asthetics, Rigidity, Materials used",
         "src" : "/css/posters/HOMEPROTEK.jpeg"
     },
@@ -67,7 +72,8 @@ const events = [
         "faculty_coordinator": "Vandana S",
         "student_coordinators": "Wendell Paul | Reihan Mujeeb",
         "room": "B302",
-        "time": "16th : 9:00 am - 2:00 pm | 17th : 9:00 am - 2:00 pm",
+        "day1": "16th : 9:00 am - 2:00 pm",
+        "day2": "17th : 9:00 am - 2:00 pm",
         "judging_criteria": "N/A",
         "src" : "/css/posters/Snifflicious.jpeg"
     },
@@ -79,7 +85,8 @@ const events = [
         "faculty_coordinator": "Surumi R",
         "student_coordinators": "Sara Biji | Huda",
         "room": "B105",
-        "time": "16th : 9:00 am - 5:00 pm | 17th : 9:00 am - 5:00 pm",
+        "day1": "16th : 9:00 am - 5:00 pm",
+        "day2": "17th : 9:00 am - 5:00 pm",
         "judging_criteria": "Time",
         "src" : "/css/posters/Escape_Room.png"
     },
@@ -91,7 +98,8 @@ const events = [
         "faculty_coordinator": "Deepa Varghese",
         "student_coordinators": "Basit | Aejaz",
         "room": "B103",
-        "time": "16th : 9:00 am - 5:00 pm | 17th : 9:00 am - 5:00 pm",
+        "day1": "16th : 9:00 am - 5:00 pm",
+        "day2": "17th : 9:00 am - 5:00 pm",
         "judging_criteria": "Time",
         "src" : "/css/posters/Lost_Treasure.png"
     },
@@ -103,7 +111,8 @@ const events = [
         "faculty_coordinator": "Shoba Francis",
         "student_coordinators": "Sanchita | Astha | Hashim | Dhruv",
         "room": "AutoCAD Lab, B406, Auditorium",
-        "time": "16th : 10:00 am - 3:30 pm | 17th : -",
+        "day1": "16th : 10:00 am - 3:30 pm",
+        "day2": "",
         "judging_criteria": "Finding the Imposter",
         "src" : "/css/posters/Skedaddle_through_time_2.jpg"
         
