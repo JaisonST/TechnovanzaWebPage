@@ -68,7 +68,7 @@ async function request(url, data, method) {
 
 // Function to show alert using Sweet Alert
 function showAlert(modal_id, text, icon, title) {
-    $(modal_id).modal('hide');
+    closeModal();
     Swal.fire({
         icon: icon,
         title: title,

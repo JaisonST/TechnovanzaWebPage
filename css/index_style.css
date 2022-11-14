@@ -213,6 +213,7 @@ section .title::after{
     background: none;
 }
 
+/* NEW CSS */
 .register-btn{
     display: inline-block;
     background: #66aedf;
@@ -225,6 +226,11 @@ section .title::after{
     border: 2px solid #66aedf;
     transition: all 0.3s ease;
     cursor: pointer;
+}
+
+/* Modal */
+.swal2-popup {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* about section styling */

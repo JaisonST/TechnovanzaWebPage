@@ -53,13 +53,13 @@
                 <div class="text-1">Hi, Welcome Onboard!</div>
                 <div class="text-2">Technovanza</div>
                 <div class="text-3">Events: <span class="typing"></span></div>
-                <button id="registerBtn" class="register-btn" onclick="openModal('registerModal')">Register Here</button>
+                <button id="registerBtn" class="register-btn" onclick="openModal('registerModal', 'CloseRegisterModal')">Register Here</button>
             </div>
         </div>
     </section>
 
-    <!-- MODAL -->
-    <div class="modal" id="registerModal">
+    <!-- LOGIN MODAL -->
+    <div class="modal" id="loginModal">
         <div class="modal-container">
             <div class="modal-left">
                 <h1 class="modal-title">Technovanza'22</h1>
@@ -74,9 +74,9 @@
                 </div>
                 <div class="modal-buttons">
                     <!-- <a href="" class="">Forgot your password?</a> -->
-                    <button class="input-button">Login</button>
+                    <button class="modal-button" onclick="login_user();">Login</button>
                 </div>
-                <p class="sign-up">Don't have an account? <a href="#">Sign up now</a></p>
+                <p class="sign-up">Don't have an account? <button class="modal-links" onclick="closeModal(); openModal('registerModal', 'CloseRegisterModal');">Register</button></p>
             </div>
             <div class="modal-right">
                 <!-- FOR EVENT REGISTRATION -->
@@ -89,7 +89,7 @@
                 <!-- <img src="/css/images/technovanza.jpeg" alt=""> -->
                 <!-- <img src="/css/images/cyberglitch.jpg" alt=""> -->
             </div>
-            <button class="icon-button close-button" id="CloseModalButton">
+            <button class="icon-button close-button" id="CloseLoginModal">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 26 26"
                     style="enable-background:new 0 0 26 26;" xml:space="preserve">
@@ -100,6 +100,65 @@
                     L7.221,9.534c-0.254-0.256-0.254-0.672,0-0.925l1.388-1.388c0.255-0.257,0.671-0.257,0.925,0L13,10.689l3.468-3.468
                     c0.255-0.257,0.671-0.257,0.924,0l1.388,1.386c0.254,0.255,0.254,0.671,0.001,0.927l-3.468,3.467l3.468,3.467
                     C19.033,16.725,19.033,17.138,18.78,17.394z" />
+                    </g>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- REGISTER MODAL -->
+    <div class="modal" id="registerModal">
+        <div class="modal-container">
+            <div class="modal-left">
+                <h1 class="modal-title">Technovanza'22</h1>
+                <p class="modal-desc">Please enter your credentials</p>
+                <div class="input-block">
+                    <label for="username" class="input-label">Name</label>
+                    <input type="text" name="name" id="usernameTextField" placeholder="Full Name">
+                </div>
+                <div class="input-block">
+                    <label for="email" class="input-label">Email</label>
+                    <input type="email" name="email" id="emailTextField" placeholder="Email">
+                </div>
+                <div id="emailValidation" style="color: red; font-size: 12px;" class="d-flex align-items-center" hidden>
+
+                </div>
+                <div class="input-block">
+                    <label for="password" class="input-label">Password</label>
+                    <input type="password" name="password" id="passwordTextField" placeholder="Password">
+                </div>
+                <div id="passwordValidation" style="color: red; font-size: 12px;" class="d-flex align-items-center" hidden> 
+
+                </div>
+                <div class="modal-buttons">
+                    <br>
+                    <!-- <a href="" class="">Forgot your password?</a> -->
+                    <button class="modal-button" onclick="register_user();">Register</button>
+                </div>
+                <p class="sign-up">Already have an account? <button class="modal-links" onclick="closeModal(); openModal('loginModal', 'CloseLoginModal');">Login</button></p>
+            </div>
+            <div class="modal-right">
+                <!-- FOR EVENT REGISTRATION -->
+                <!-- <img src="/css/images/techno.jpg" alt=""> -->
+                <!-- FOR REGISTRATION -->
+                <!-- <img src="/css/images/loginCube.jpg" alt=""> -->
+                <!-- <img src="/css/images/loginCube2.jpg" alt=""> -->
+                <img src="/css/images/techno.gif" alt="">
+                <!-- FOR LOGIN -->
+                <!-- <img src="/css/images/technovanza.jpeg" alt=""> -->
+                <!-- <img src="/css/images/cyberglitch.jpg" alt=""> -->
+            </div>
+            <button class="icon-button close-button" id="CloseRegisterModal">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 26 26"
+                    style="enable-background:new 0 0 26 26;" xml:space="preserve">
+                    <g>
+                        <path class="close-button-color" d="M21.125,0H4.875C2.182,0,0,2.182,0,4.875v16.25C0,23.818,2.182,26,4.875,26h16.25
+                        C23.818,26,26,23.818,26,21.125V4.875C26,2.182,23.818,0,21.125,0z M18.78,17.394l-1.388,1.387c-0.254,0.255-0.67,0.255-0.924,0
+                        L13,15.313L9.533,18.78c-0.255,0.255-0.67,0.255-0.925-0.002L7.22,17.394c-0.253-0.256-0.253-0.669,0-0.926l3.468-3.467
+                        L7.221,9.534c-0.254-0.256-0.254-0.672,0-0.925l1.388-1.388c0.255-0.257,0.671-0.257,0.925,0L13,10.689l3.468-3.468
+                        c0.255-0.257,0.671-0.257,0.924,0l1.388,1.386c0.254,0.255,0.254,0.671,0.001,0.927l-3.468,3.467l3.468,3.467
+                        C19.033,16.725,19.033,17.138,18.78,17.394z" />
                     </g>
                 </svg>
             </button>
@@ -341,4 +400,5 @@
 <script src="/js/helper.js"></script>
 <script src="/js/index.js"></script>
 <script src="/js/modal.js"></script>
+
 </html>
