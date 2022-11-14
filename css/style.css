@@ -18,6 +18,10 @@ body {
     margin: 0 auto;
 }
 
+#passwordValidation, #emailValidation{
+    color: red;
+}
+
 /* Home page events section styling */
 .events {
     padding: 1rem;

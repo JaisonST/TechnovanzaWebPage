@@ -1,46 +1,10 @@
-function request(url, data, method) {
-    console.log(url);
-    console.log(data);
-
-    fetch(url, {
-        method: method,
-        body: data,
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then(res => {
-        console.log(res);
-        if (res.status == 200) {
-            var date = new Date();
-            date.setTime(date.getTime() + (2 * 24 * 60 * 60 * 1000));
-            document.cookie = `user_email=${email}; expires=` + date.toGMTString();
-            $('#myModal').modal('hide');
-
-            window.location = '/html/home.html';
-       }
-        else {
-            showAlert();
-        }
-    });
-}
-
-// Takes given list of element ids, extract name & value property & convert into object  
-function convertToJSON(keys) {
-    jsonObj = {};
-
-    keys.forEach(element => {
-        key = document.getElementById(element);
-        jsonObj[key.name] = key.value;
-    });
-
-    return JSON.stringify(jsonObj);
-}
-
 function register_user() {
     //Validate entries      
     if (validate(email.value, password.value)) {
         //Make request 
-        request('https://www.technovanza-api.tk/register', convertToJSON(["usernameTextField", "emailTextField", "passwordTextField"]), "POST");
+        res = request('https://www.technovanza-api.tk/register', convertToJSON(["usernameTextField", "emailTextField", "passwordTextField"]), "POST");
+        handle_response(res, "User registration failed", "#registerModal");
+        
     }
 
     // Clear text fields 
@@ -53,11 +17,38 @@ function login_user() {
     email = document.getElementById("email");
     password = document.getElementById("password");
 
-    request('https://www.technovanza-api.tk/login', convertToJSON(["email", "password"]), "POST", email.value);
+    if (email.value != "" && password.value != "") {
+        res = request('https://www.technovanza-api.tk/login', convertToJSON(["email", "password"]), "POST", email.value);
+        handle_response(res, "User login failed", "#loginModal");
+    }
 
     // Clear text fields 
     password.value = '';
     email.value = '';
+}
+
+function handle_response(res, message, modal_id){
+    res.then(user => {
+        if (user.status == 200) {
+            user.data.then(user_data => {
+                if(modal_id == "#registerModal"){
+                    showAlert(modal_id, "You have successfully registered", "success", "Registered");
+                }
+
+                var date = new Date();
+                date.setTime(date.getTime() + (2 * 24 * 60 * 60 * 1000));
+                document.cookie = `user_email=${user_data["user_data"]["email"]}; expires=` + date.toGMTString();
+                // $(modal_id).modal('hide');
+                
+                window.location = '/html/home.html';
+            });
+        }
+        else{
+            user.data.then(user_data =>{
+                showAlert(modal_id, message + ": " + user_data["error"], 'error', 'Error occured!...');
+            });
+        }
+    });
 }
 
 function validate(email, password) {
@@ -92,19 +83,6 @@ function validate(email, password) {
         return true;
     }
 }
-
-// Function to show alert using Sweet Alert
-function showAlert() {
-
-    $('#myModal').modal('hide');
-    Swal.fire({
-        icon: 'error',
-        title: 'Error occured!...',
-        text: 'User registration failed.',
-        confirmButtonColor: '#5cbdaa',
-    })
-}
-
 
 email = document.getElementById("emailTextField");
 password = document.getElementById("passwordTextField");
