@@ -1,3 +1,5 @@
+autoLogin();
+
 //Get cookie - on login 
 function autoLogin() {
     if (getCookie("user_email") !== "") {

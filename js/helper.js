@@ -48,9 +48,8 @@ function convertToJSON(keys) {
 
 // POST/GET requests
 async function request(url, data, method) {
-    console.log(url);
+    console.log(url)
     console.log(data);
-
     const res = await fetch(url, {
         method: method,
         headers: {
@@ -74,7 +73,7 @@ function showAlert(modal_id, text, icon, title) {
         icon: icon,
         title: title,
         text: text,
-        confirmButtonColor: '#5cbdaa',
+        confirmButtonColor: '#66aedf',
     })
 }
 

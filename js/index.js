@@ -84,10 +84,10 @@ function validate(email, password) {
     }
 }
 
-email = document.getElementById("emailTextField");
-password = document.getElementById("passwordTextField");
-username = document.getElementById("usernameTextField");
+// email = document.getElementById("emailTextField");
+// password = document.getElementById("passwordTextField");
+// username = document.getElementById("usernameTextField");
 
-password.addEventListener('blur', () => {
-    validate(email.value, password.value);
-});
+// password.addEventListener('blur', () => {
+//     validate(email.value, password.value);
+// });
