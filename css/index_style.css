@@ -292,6 +292,7 @@ section .title::after{
     content: "Join the Fest";
 }
 .services .serv-content .card{
+    z-index: -1;
     width: calc(33% - 20px);
     background: #222;
     text-align: center;

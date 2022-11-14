@@ -15,9 +15,6 @@ function display_event(reg_event) {
         </div>
         </div>
         `).owlCarousel('update');
-
-        // registered.innerHTML += `
-        //     ;
     });
 }
 

@@ -32,7 +32,7 @@ function handle_response(res, message, modal_id){
         if (user.status == 200) {
             user.data.then(user_data => {
                 if(modal_id == "#registerModal"){
-                    showAlert(modal_id, "You have successfully registered", "success", "Registered");
+                    showAlert("You have successfully registered", "success", "Registered");
                 }
 
                 var date = new Date();
@@ -55,7 +55,8 @@ function handle_response(res, message, modal_id){
         }
         else{
             user.data.then(user_data =>{
-                showAlert(modal_id, message + ": " + user_data["error"], 'error', 'Error occured!...');
+                console.log("error")
+                showAlert(message + ": " + user_data["error"], 'error', 'Error occured!...');
             });
         }
     });
@@ -104,4 +105,12 @@ username = document.getElementById("usernameTextField");
 
 password.addEventListener('blur', () => {
     validate(email.value, password.value);
+});
+
+// Add event listeners for event cards 
+cards = document.getElementsByClassName('event-card');
+Array.from(cards).forEach(element => {
+    element.addEventListener('click', () =>{
+        openModal('loginModal', 'CloseLoginModal');
+    })
 });

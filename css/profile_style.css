@@ -78,7 +78,8 @@ img{
 }
 
 .profile_modal__container{
-  position: absolute;
+  font-family: var(--body-font);
+  position: fixed;
   top: 0;
   left: 0;
   background-color: hsla(var(--hue), 18%, 75%, .8);
@@ -86,7 +87,7 @@ img{
   height: 100vh;
   display: grid;
   align-items: flex-end;
-  overflow: hidden;
+  /* overflow: hidden; */
   transition: all .3s;
   z-index: var(--z-modal);
   visibility: hidden;
