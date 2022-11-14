@@ -11,7 +11,6 @@ function openModal(modal_id){
 
 function closeModal(){
   modal.classList.remove("is-open");
-  // console.log("%cClosing Modal with ID: " + modal.id.toString(), 'color: Red;');
 };
 
 function SetModal( modalID, closeButtonID ){  
@@ -19,5 +18,4 @@ function SetModal( modalID, closeButtonID ){
   closeButton = document.getElementById(closeButtonID.toString());
   
   closeButton.addEventListener("click", closeModal);
-  modal.addEventListener("click", closeModal); 
 }
