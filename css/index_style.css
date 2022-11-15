@@ -470,7 +470,7 @@ section .title::after{
     transform: translate(-50%, -50%);
     text-align: center;
 }
-.sub-title{
+.subtitle{
     color: white;
     font-size: 15px;
     position: absolute;
