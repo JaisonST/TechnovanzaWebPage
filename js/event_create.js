@@ -17,7 +17,7 @@ function load_events() {
     event_list = document.getElementsByClassName("event-card");
     Array.from(event_list).forEach(element => {
         element.addEventListener('click', e => {
-            location.href = `/html/event_page.html?id=${element.id.at(-1)}`;
+            location.href = `/html/event_page.html?id=${element.id}`;
             // createMembers(element.id);
         })
     });
