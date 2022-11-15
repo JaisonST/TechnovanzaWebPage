@@ -81,3 +81,6 @@
     /* border-radius: 15px; */
 }
 
+.navbar{
+    z-index: 50;
+}

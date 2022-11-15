@@ -1,21 +1,27 @@
+function reset(){
+    loginBtn = document.getElementById("loginBtn");
+    loginBtn.innerHTML = "Login";
+
+    regBtn = document.getElementById("regBtn");
+    regBtn.innerHTML = "Register";
+}
+
 //Get cookie - on login 
-function autoLogin(baseURI) {
-    if (getCookie("user_email") !== "" && getCookie("user_name") !== "") {        
-        console.log("%cCookie is Set " + document.baseURI, 'color: cyan' );
-        console.log("%c!document.baseURI.includes(baseURI) " + !document.baseURI.includes(baseURI), 'color: red');
-        if (!document.baseURI.includes(baseURI)) {
-            console.log("%c!document.baseURI.includes(baseURI)" + !document.baseURI.includes(baseURI), 'color: red');
-            location.replace(baseURI);
+function autoLogin() {
+    if (getCookie("user_email") !== "" && getCookie("user_name") !== "") {
+        if (!document.baseURI.includes('/home.html')) {
+            console.log("The cookie is not null");
+            location.replace('/html/home.html');
         }
     }
-    else {    
-        console.log("%cCookie is not Set" + document.baseURI, 'color: purple');
+    else {
         if (!document.baseURI.includes('/index.html')) {
-            console.log("%c!document.baseURI.includes '/index.html' " + !document.baseURI.includes(baseURI) , 'color: red');
+            console.log("The cookie is null");
             window.location.href = "/html/index.html";
         }
     }
 }
+
 
 function checkValid(){
     if (getCookie("user_email") == "" && getCookie("user_name") == ""){

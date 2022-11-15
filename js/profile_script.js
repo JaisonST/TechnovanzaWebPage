@@ -16,8 +16,8 @@ const showProfileModal = (openButton, modalContent) =>{
             qr.innerHTML = '';
             const qrcode = new QRCode('qrcode', {
                 text: email,
-                width: 500,
-                height: 500,
+                width: 150,
+                height: 150,
             });
 
             modalContainer.classList.add('show-profile_modal')
