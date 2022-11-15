@@ -20,18 +20,12 @@ function convertToJSON(keys) {
         key = document.getElementById(element);
 
         if (element == "TeamName") {
-            if (isTeam == 1) {
-                var Name = document.querySelector("#members_name input");
-                jsonObj[key.name] = Name.value;
-                // console.log(Name.value.toString());
-            }
-            else
                 jsonObj[key.name] = key.value;
         }
         else {
             if (element == "members_email") {
                 var emails = [];
-                $('#members_email input').each(function () {
+                $('input[name="members[]"]').each(function () {
                     emails.push({"email": `${this.value}`});
                 });
 

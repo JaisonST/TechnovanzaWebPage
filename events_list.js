@@ -45,7 +45,7 @@ const events = [
         "isTeam": 1,
         "faculty_coordinator": "Sampath Suranjan",
         "student_coordinators": "Ahmed Fazal | Raj P",
-        "room": "Basketball court",
+        "room": "Hostel court",
         "day1": "17th : 10:30 am - 1:30 pm",
         "day2": "",
         "judging_criteria": "Flight Time and Distance",
@@ -54,7 +54,7 @@ const events = [
     {
         "id" : 5, 
         "name": "Homeprotek",
-        "desc": "Build a cardboard house with ventilation.",
+        "desc": "Each team will be supplied with basic requirements for building the home structure they will also be supplied with a list of items that is supplied extra tools for building in the market which will  be charged (game credit). The winners will be judged on the basis of the house that is build with best ventilation, good asthetics, stability and the least budgeting possible",
         "isTeam": 4,
         "faculty_coordinator": "Sampath Suranjan",
         "student_coordinators": "Krishna Prasad | Pratyush",
@@ -80,7 +80,7 @@ const events = [
     {
         "id" : 7, 
         "name": "Escape Room",
-        "desc": "An elaborate puzzle for the quick- witted.",
+        "desc": "Are you ready for an adventure of thrill and fear? Are you a fan of stranger things? The department of civil engineering presents you the most exciting puzzles of all times - “Escape Room” based on award winning show “Stranger Things”. Full of twists, turns and most importantly teamwork. Be the ultimate winner in 10 minutes, Where nobody gets out without having fun.",
         "isTeam": 2,
         "faculty_coordinator": "Surumi R",
         "student_coordinators": "Sara Biji | Huda",
@@ -93,7 +93,8 @@ const events = [
     {
         "id" : 8, 
         "name": "Lost Treasure",
-        "desc": "Clues to find a hidden item.",
+        "desc": `Nothing’s lost forever. <br><br>
+        The Department of Civil Engineering brings to you “Lost Treasure” A game in which each team will surely be the winner. Make your attempt to be the first in finding something that has been hidden, using written directions or clues. Can you navigate? Will you be able to look beyond what meets the eye? Only one way to find out!`,
         "isTeam": 4,
         "faculty_coordinator": "Deepa Varghese",
         "student_coordinators": "Basit | Aejaz",
@@ -106,11 +107,19 @@ const events = [
     {
         "id" : 9, 
         "name": "Skedaddle Through Time",
-        "desc": "A game with 3 stages - Cipher Game (beginning the storyline), Combat Game (with VR headsets and controllers) and Among Us (find the impostor).",
+        "desc": `First part - Game title: Mysteries of Anubis
+        First game: Cyphers solving hard riddles about 2-3 (8 people this side - team 1)
+        Second game: Sherlock Holmes solving puzzles/mysteries around 1-6+ (8 other people this side - team 2)
+        <br><br>
+        Second part: Creed: Rise to Glory - a virtual reality boxing video game, released in 2018
+        Gives an immense cinematic experience of real life boxing 
+        Is played with PS4 with PSVR and 2 motion controllers to provide a physical experience.
+        <br><br> 
+        Final part: Among Us is a party game for 7 - 10 players. Players are divided into 2 teams, Crew-mates and Impostors. The goal of the Crew-mates is to complete tasks to maintain and fix the spaceship, while the Impostor's goal is to sabotage the entire mission before the task gauge fills up. Players will discuss amongst each other, vote for suspicious players and eject them out into the cold abyss of space. Crew-mates can also win by ejecting all Impostors.`,
         "isTeam": 5,
         "faculty_coordinator": "Shoba Francis",
         "student_coordinators": "Sanchita | Astha | Hashim | Dhruv",
-        "room": "AutoCAD Lab, B406, Auditorium",
+        "room": "AutoCAD Lab",
         "day1": "16th : 10:00 am - 3:30 pm",
         "day2": "",
         "judging_criteria": "Finding the Imposter",

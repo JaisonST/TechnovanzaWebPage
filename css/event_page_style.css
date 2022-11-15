@@ -81,3 +81,15 @@
     /* border-radius: 15px; */
 }
 
+.navbar{
+    z-index: 50;
+}
+
+.download{
+    margin-top: 15px;
+    background-color: green;
+}
+
+.download:hover{
+    background-color: rgb(5, 99, 5);
+}

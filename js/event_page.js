@@ -1,9 +1,10 @@
-function get_info(){
+
+function get_info() {
     var r = document.querySelector(':root');
 
     const event_id = new URLSearchParams(window.location.search).get('id');
     console.log(event_id);
-    event = events[event_id-1];
+    var event = events[event_id - 1];
 
     infoSection = document.getElementById("infoLoad");
     infoSection.innerHTML = `
@@ -41,11 +42,10 @@ function get_info(){
 
                 <br><br>
                 <div class="modal-buttons">
-                    <button class="modal-button" onclick="createMembers(${event.id})">Register</button>
+                    <button class="modal-button" onclick="openModal('registerEventModal', 'CloseRegisterEventModal');  createMembers(${event.id});">Register</button>
                 </div>
             </div>
         </div>
     `;
-
     r.style.setProperty('--room-name', `"${event.room}"`)
 }

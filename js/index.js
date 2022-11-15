@@ -7,6 +7,9 @@ function register_user() {
         handle_response(res, "User registration failed", "#registerModal");
     }
 
+    regBtn = document.getElementById("regBtn");
+    regBtn.innerHTML = "Loading...";
+
     // Clear text fields 
     username.value = '';
     password.value = '';
@@ -21,6 +24,9 @@ function login_user() {
         res = request('https://www.technovanza-api.tk/login', convertToJSON(["email", "password"]), "POST", email.value);
         handle_response(res, "User login failed", "#loginModal");
     }
+
+    loginBtn = document.getElementById("loginBtn");
+    loginBtn.innerHTML = "Loading...";
 
     // Clear text fields 
     password.value = '';
@@ -50,6 +56,7 @@ function handle_response(res, message, modal_id){
                 document.cookie = `user_id=${user_data["user_data"]["id"]}; expires=` + date.toGMTString();
                 document.cookie = `user_role=${user_data["user_data"]["role"]}; expires=` + date.toGMTString();
                 
+
                 window.location = '/html/home.html';
             });
         }
@@ -58,6 +65,8 @@ function handle_response(res, message, modal_id){
                 console.log("error")
                 showAlert(message + ": " + user_data["error"], 'error', 'Error occured!...');
             });
+
+            reset();
         }
     });
 }
@@ -67,7 +76,7 @@ function validate(email, password) {
     var re = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
     // Regex expression for password validation 
-    var pre = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,40}$/;
+    // var pre = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,40}$/;
 
     // To keep track of validated fields 
     flag = 0;
@@ -84,8 +93,8 @@ function validate(email, password) {
     }
 
     passwordValidation = document.getElementById("passwordValidation");
-    if (!pre.test(password)) {
-        passwordValidation.innerHTML = "Password should be atleast 8 characters, containing atleast 1 digit, uppercase letter and special character";
+    if (password.length < 6) {
+        passwordValidation.innerHTML = "Password should be atleast 6 characters";
         passwordValidation.removeAttribute("hidden");
     }
     else {
