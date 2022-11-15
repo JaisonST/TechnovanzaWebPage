@@ -17,6 +17,13 @@ function autoLogin(baseURI) {
     }
 }
 
+function checkValid(){
+    if (getCookie("user_email") == "" && getCookie("user_name") == ""){
+        console.log("why")
+        location.href = "/html/index.html";
+    }
+}
+
 function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
