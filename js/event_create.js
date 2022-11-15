@@ -65,7 +65,7 @@ function createMembers(id = 5) {
     for (let i = 1; i <= parseInt(events[id - 1]["isTeam"]); i++) 
     {
         memberFields.innerHTML += `
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center justify-content-center">
                 <div class="input-block member-no-modal">
                     <label type="text" id=>#${i}</label>
                 </div> 
@@ -105,7 +105,7 @@ function ValidateEmail(email){
         return true;
 }
 
-function ValidateInputsByName(elementName, isEmail = 0){
+function ValidateInputsByName(elementName, isEmail = 0,){
     invalidInputs = 0;
     member_inputs = document.getElementsByName(elementName);
     Array.from(member_inputs).forEach(element => {  
@@ -113,6 +113,7 @@ function ValidateInputsByName(elementName, isEmail = 0){
             invalidInputs  += 1;
         if( isEmail == 1 && !ValidateEmail(element.value.toString()) )
             invalidInputs += 1;
+
         console.log("%cInvalid Input: " + invalidInputs.toString() 
                     + " Member text: " + element.value.toString(), 'color: orange;');
     });
