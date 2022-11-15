@@ -66,15 +66,15 @@ function createMembers(id = 5) {
     {
         memberFields.innerHTML += `
             <div class="d-flex align-items-center" style="justify-content: space-around;">   
-                <div class="input-block" style="width: 10%; border: none;">
+                <div class="input-block" style="width: 8%; border: none;">
                 </div> 
-                <div class="input-block" style="width: 10%;">
+                <div class="input-block" style="width: 14%;">
                     <label type="text" id=>#${i}</label>
                     </div> 
                     <div class="input-block" style="width: 60%;">
                     <input type="text" id="${i}_email" name="members[]" placeholder="Email" required>
                     </div>
-                <div class="input-block" style="width: 10%; border: none;">
+                <div class="input-block" style="width: 8%; border: none;">
                 </div> 
             </div>
             `;            
