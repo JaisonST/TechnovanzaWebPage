@@ -12,6 +12,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
   <link rel="stylesheet" href="/css/home_style.css">
   <!--=============== Profile Page Imports ===============-->
   <!--=============== BOXICONS ===============-->
@@ -33,7 +35,8 @@
   <nav class="navbar">
     <div class="max-width">
       <div class="logo"><a href="#">Techno<span>vanza'22</span></a></div>
-      <ul class="menu">
+      <ul class="menu" id="nav_menu_home">
+        <li id="firstChild"></li>
         <li><a href="#skills" class="menu-btn">Attended Events</a></li>
         <li><a href="#teams" class="menu-btn">My Events</a></li>
         <li><a href="#about" class="menu-btn" id="open-profile-modal">Profile</a></li>
@@ -89,7 +92,8 @@
   <section class="skills" id="skills">
     <div class="max-width">
       <h2 class="title">Attended Events</h2>
-      <div class="carousel owl-carousel">
+      <div class="carousel owl-carousel" id="scanned">
+
       </div>
     </div>
   </section>
@@ -110,9 +114,19 @@
 <script src="/js/home_layout.js"></script>
 <script src="/events_list.js"></script>
 <script src="/js/helper.js"></script>
+<script src="/js/scanned_event.js"></script>
 <script src="/js/registered_event.js"></script>
 <script src="/js/event_create.js"></script>
 <script>
   document.getElementById("welcome").innerHTML = `${getCookie("user_name")}`;
+
+  firstChild = document.getElementById("firstChild");
+  if (getCookie("isVolunteer") == "") {
+    hidden = ""
+  }
+  else {
+    firstChild.innerHTML = `<a href="#skills" class="menu-btn">Scans</a>`;
+  }
 </script>
+
 </html>

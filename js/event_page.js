@@ -1,5 +1,13 @@
-
 function get_info() {
+    hidden = "";
+
+    if(getCookie("isVolunteer") == ""){
+        hidden = "hidden";
+    }
+    else{
+        hidden = ""
+    }
+
     var r = document.querySelector(':root');
 
     const event_id = new URLSearchParams(window.location.search).get('id');
@@ -43,6 +51,9 @@ function get_info() {
                 <br><br>
                 <div class="modal-buttons">
                     <button class="modal-button" onclick="openModal('registerEventModal', 'CloseRegisterEventModal');  createMembers(${event.id});">Register</button>
+                </div>
+                <div class="modal-buttons">
+                    <button class="modal-button download" id="downloadBtn" ${hidden}>Download Participant List</button>
                 </div>
             </div>
         </div>
