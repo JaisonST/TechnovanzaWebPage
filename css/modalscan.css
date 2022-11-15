@@ -1,0 +1,18 @@
+.modal-header {
+    background: #b26adf;
+    color: #fff;
+}
+.modal-body{
+    background: #f0f80a;
+}
+.modal-footer {
+    background: #b26adf;
+}
+.result{
+    background-color: green;
+    color:#fff;
+    padding:10px;
+  }
+  .row{
+    display:flex;
+  }

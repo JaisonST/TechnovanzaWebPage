@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="modalscan.css">
+    <title>Technovanza 2022</title>
+
+    <!-- <style>
+        .modal-header {
+            background: #b26adf;
+            color: #fff;
+        }
+        .modal-body {
+            background: #f0f80a;
+        }
+        .modal-footer {
+            background: #b26adf;
+        }
+    </style> -->
+</head>
+
+<body>
+    <div class="container mt-5">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Register</button>
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Scan QR Code</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <!-- <script src="main.js"></script> -->
+                            
+                            <!-- <style>
+                              .result{
+                                background-color: green;
+                                color:#fff;
+                                padding:10px;
+                              }
+                              .row{
+                                display:flex;
+                              }
+                            </style> -->
+                            <div class="row">
+                              <div class="col">
+                                <div style="width:320px;" id="reader"></div>
+                              </div>
+                              <div class="col" style="padding:30px ;">
+                                <h4>SCAN RESULT:</h4>
+                                <div id="result">Result Here</div>
+                              </div>
+                            </div>
+                            <script type="text/javascript" src="mainscan.js">
+                                
+                            // function onScanSuccess(qrCodeMessage) {
+                            //     document.getElementById('result').innerHTML = qrCodeMessage;
+
+                                
+                            // }
+                            
+
+                            // function onScanError(errorMessage) {
+                            //   //handle scan error
+                            // }
+                            // var html5QrcodeScanner = new Html5QrcodeScanner(
+                            //     "reader", { fps: 10, qrbox: 250 });
+                            // html5QrcodeScanner.render(onScanSuccess, onScanError);
+                            </script>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                       
+                        <select id="event" > 
+                            <!-- <option> Event List</option> -->
+                            <option value="Electrothon">Electrothon</option>
+                            <option value="Escape room">Escape room</option>
+                            <option value="Lazer maze">Lazer maze</option>
+                            <option value="Lost Treasure">Lost Treasure</option>
+                            <option value="Homeprotek">Homeprotek</option>
+                            <option value="Hydrojet">Hydrojet</option>
+                            <option value="Skedaddle Through 
+                            Time">Skedaddle Through 
+                            Time</option>
+                            <option value="SniffLicious">SniffLicious</option>
+
+                        </select>
+
+                        <script type="text/javascript" src="mainscan.js">
+                        
+                        // function getSelectValue()
+                        // {
+                        //     var selectedValue = document.getElementById("event").value;
+                        //     console.log(selectedValue);
+                        //     var qrCodeMessage =  document.getElementById('result').innerHTML;
+                        //     console.log(qrCodeMessage);
+
+                        // }
+                        // getSelectValue();
+                    </script>
+
+
+                <button onclick="getSelectValue()"
+                     type="submit" class="btn btn-danger">Submit </button>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+
+</html>
