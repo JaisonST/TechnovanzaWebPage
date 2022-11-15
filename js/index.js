@@ -1,14 +1,41 @@
+
+username = document.getElementById("usernameTextField");
+email = document.getElementById("emailTextField");
+password = document.getElementById("passwordTextField");
+
+password.addEventListener('blur', () => {
+    validate(email.value, password.value);
+});
+
 function register_user() {
     //Validate entries      
-    if (validate(email.value, password.value)) {
+    
+    // 6:10 PM 15/11/2022 
+    // Username Validation with Error message
+    usernameValidation = document.getElementById("usernameValidation");
+    inValidUserName = 0;
+    if( isStringNullOrWhiteSpace(username.value) ){        
+        console.log("%cUsername is Invalid: " + isStringNullOrWhiteSpace(username.value), 'color: red;');
+        usernameValidation.removeAttribute("hidden");
+        usernameValidation.innerHTML = "Please enter a username";
+        inValidUserName = 1;
+    }
+    else{
+        usernameValidation.innerHTML = "";
+        usernameValidation.setAttribute("hidden", "");
+        inValidUserName = 0;
+    }
+
+    regBtn = document.getElementById("regBtn");
+    if (validate(email.value, password.value) && inValidUserName == 1) {
         console.log
         //Make request 
         res = request('https://www.technovanza-api.tk/register', convertToJSON(["usernameTextField", "emailTextField", "passwordTextField"]), "POST");
         handle_response(res, "User registration failed", "#registerModal");
+        regBtn.innerHTML = "Loading...";
     }
-
-    regBtn = document.getElementById("regBtn");
-    regBtn.innerHTML = "Loading...";
+    else
+    regBtn.innerHTML = "Register";
 
     // Clear text fields 
     username.value = '';
@@ -19,14 +46,44 @@ function register_user() {
 function login_user() {
     email = document.getElementById("email");
     password = document.getElementById("password");
-
-    if (email.value != "" && password.value != "") {
-        res = request('https://www.technovanza-api.tk/login', convertToJSON(["email", "password"]), "POST", email.value);
-        handle_response(res, "User login failed", "#loginModal");
+    
+    // 6:10 PM 15/11/2022 
+    // Updated NULL email and Password validation as well
+    emailValidationLogin = document.getElementById("emailValidationLogin");
+    passwordValidationLogin = document.getElementById("passwordValidationLogin");
+    loginBtn = document.getElementById("loginBtn");
+    inValidInputs = 0;
+    
+    if( isStringNullOrWhiteSpace(email.value) ){        
+        console.log("%cInvalid Email " + isStringNullOrWhiteSpace(username.value), 'color: red;');
+        emailValidationLogin.removeAttribute("hidden");
+        emailValidationLogin.innerHTML = "Please enter an email.";
+        inValidInputs += 1;
+    }
+    else{
+        emailValidationLogin.innerHTML = "";
+        emailValidationLogin.setAttribute("hidden", "");
     }
 
-    loginBtn = document.getElementById("loginBtn");
-    loginBtn.innerHTML = "Loading...";
+    if( isStringNullOrWhiteSpace(password.value) ){        
+        console.log("%cInvalid Password " + isStringNullOrWhiteSpace(password.value), 'color: red;');
+        passwordValidationLogin.removeAttribute("hidden");
+        passwordValidationLogin.innerHTML = "Please enter a password.";
+        inValidInputs += 1;
+    }
+    else{
+        emailValidationLogin.innerHTML = "";
+        emailValidationLogin.setAttribute("hidden", "");
+    }
+    
+    if ( inValidInputs == 0 ) {
+        res = request('https://www.technovanza-api.tk/login', convertToJSON(["email", "password"]), "POST", email.value);
+        
+        handle_response(res, "User login failed", "#loginModal");
+        loginBtn.innerHTML = "Loading...";
+    }
+
+    loginBtn.innerHTML = "Login";
 
     // Clear text fields 
     password.value = '';
@@ -107,14 +164,6 @@ function validate(email, password) {
         return true;
     }
 }
-
-email = document.getElementById("emailTextField");
-password = document.getElementById("passwordTextField");
-username = document.getElementById("usernameTextField");
-
-password.addEventListener('blur', () => {
-    validate(email.value, password.value);
-});
 
 // Add event listeners for event cards 
 cards = document.getElementsByClassName('event-card');

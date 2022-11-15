@@ -93,15 +93,6 @@ function createMembers(id = 5) {
     }
 }
 
-function isStringNullOrWhiteSpace(str){
-    if( str === undefined || str === null
-                             || typeof str !== 'string'
-                             || str.match(/^ *$/) !== null )
-        return true;
-    else 
-        return false;
-}
-
 function ValidateEmail(email){
     
     // Regex expression for email validation 
@@ -181,6 +172,8 @@ function register_team() {
         });
     }
 }
+
+/* isStringNullOrWhiteSpace() Copied to helper.js */
 
 function get_info(){
     var r = document.querySelector(':root');

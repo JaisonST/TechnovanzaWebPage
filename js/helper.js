@@ -40,6 +40,16 @@ function convertToJSON(keys) {
     return JSON.stringify(jsonObj);
 }
 
+// isStringNullOrWhiteSpace() Copied from event_create.js 
+function isStringNullOrWhiteSpace(str){
+    if( str === undefined || str === null
+                             || typeof str !== 'string'
+                             || str.match(/^ *$/) !== null )
+        return true;
+    else 
+        return false;
+}
+
 // POST/GET requests
 async function request(url, data, method) {
     console.log(url)
