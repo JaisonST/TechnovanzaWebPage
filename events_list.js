@@ -2,7 +2,7 @@ const events = [
     {
         "id" : 1, 
         "name": "Lazer Maze",
-        "desc": "",
+        "desc": "Maze created using lazers.",
         "isTeam": 1,
         "faculty_coordinator": "Dr. Amit Mondal",
         "student_coordinators": "Bilal | Joravar",
@@ -15,7 +15,7 @@ const events = [
     {
         "id" : 2, 
         "name": "Electrothon",
-        "desc": "",
+        "desc": "Three mini games - buzzwire, japanese electronic game and carnival shooting game. Arduino circuit building.",
         "isTeam": 1,
         "faculty_coordinator": "Dr. Ravishankar Dudhe",
         "student_coordinators": "Silah | Rayyan",
