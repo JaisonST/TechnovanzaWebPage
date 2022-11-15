@@ -20,15 +20,17 @@ function convertToJSON(keys) {
         key = document.getElementById(element);
 
         if (element == "TeamName") {
-                jsonObj[key.name] = key.value;
+            jsonObj[key.name] = key.value;
         }
         else {
             if (element == "members_email") {
                 var emails = [];
                 $('input[name="members[]"]').each(function () {
-                    emails.push({"email": `${this.value}`});
+                    if(!isStringNullOrWhiteSpace(this.value)){
+                        emails.push({ "email": `${this.value}` });
+                    }
                 });
-
+                    
                 console.log(emails);
                 jsonObj["members"] = emails;
             }
@@ -38,6 +40,15 @@ function convertToJSON(keys) {
     });
 
     return JSON.stringify(jsonObj);
+}
+// isStringNullOrWhiteSpace() Copied from event_create.js 
+function isStringNullOrWhiteSpace(str) {
+    if (str === undefined || str === null
+        || typeof str !== 'string'
+        || str.match(/^ *$/) !== null)
+        return true;
+    else
+        return false;
 }
 
 // POST/GET requests
@@ -62,7 +73,7 @@ async function request(url, data, method) {
 
 // Function to show alert using Sweet Alert
 function showAlert(text, icon, title) {
-    closeModal();
+    // closeModal();
     Swal.fire({
         icon: icon,
         title: title,

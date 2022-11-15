@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
+  <!-- Sweet Alert -->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
   <!--================= QRSCANNER.js ===================-->
   <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
@@ -13,25 +18,31 @@
 </head>
 
 <body>
-      <!-- SCAN section starts here-->
-      <div id="qr-reader" style="width: 300px; height: 300px; font-family: 'Courier New', Courier, monospace;" class="profile_modal__img"></div>
+  <!-- SCAN section starts here-->
+  <div id="qr-reader" style="width: 300px; height: 300px; font-family: 'Courier New', Courier, monospace;"
+    class="profile_modal__img"></div>
 
-      <select id="event_choice" > 
-        <!-- <option> Event List</option> -->
-        <option value="" disabled selected>Select Event</option>
-        <option value="Electrothon">Electrothon</option>
-        <option value="Escape_room">Escape room</option>
-        <option value="Lazer_maze">Lazer maze</option>
-        <option value="Lost_Treasure">Lost Treasure</option>
-        <option value="Homeprotek">Homeprotek</option>
-        <option value="Hydrojet">Hydrojet</option>
-        <option value="Skedaddle_Through_Time">Skedaddle Through Time</option>
-        <option value="SniffLicious">SniffLicious</option>
-    </select>
+  <select id="event_choice">
+    <!-- <option> Event List</option> -->
+    <option value="" disabled selected>Select Event</option>
+    <option value="Electrothon">Electrothon</option>
+    <option value="Escape_room">Escape room</option>
+    <option value="Lazer_maze">Lazer maze</option>
+    <option value="Lost_Treasure">Lost Treasure</option>
+    <option value="Homeprotek">Homeprotek</option>
+    <option value="Hydrojet">Hydrojet</option>
+    <option value="Skedaddle_Through_Time">Skedaddle Through Time</option>
+    <option value="SniffLicious">SniffLicious</option>
+    <option value="Robo_Invasion">Robo Invasion</option>
+  </select>
 
-    <p>Scanned email id: </p><p id="scanned_result"></p>
-    <button id = "submit_scan" onclick="submitscan()">Submit</button>
+  <p>Scanned email id: </p>
+  <p id="scanned_result"></p>
+  <button id="submit_scan" onclick="submitscan()">Submit</button>
 
 </body>
+<script src="/js/modal.js"></script>
+<script src="/js/helper.js"></script>
 <script src="/js/scan.js"></script>
+
 </html>

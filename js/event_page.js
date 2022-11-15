@@ -85,7 +85,7 @@ function get_info() {
 
                 <br><br>
                 <div class="modal-buttons">
-                    <button class="modal-button" onclick="openModal('registerEventModal', 'CloseRegisterEventModal');  createMembers(${event.id});">Register</button>
+                    <button class="modal-button" onclick="openModal('registerEventModal', 'CloseRegisterEventModal', 1);  createMembers(${event.id});">Register</button>
                 </div>
                 <div class="modal-buttons">
                     <button class="modal-button download" id="downloadBtn" ${hidden} onclick="getParticipant('${event.name}')">Download Participant List</button>

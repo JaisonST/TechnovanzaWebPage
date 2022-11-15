@@ -39,6 +39,7 @@ function handle_response(res, message, modal_id){
             user.data.then(user_data => {
                 if(modal_id == "#registerModal"){
                     showAlert("You have successfully registered", "success", "Registered");
+                    closeModal();
                 }
 
                 var date = new Date();
@@ -64,6 +65,7 @@ function handle_response(res, message, modal_id){
             user.data.then(user_data =>{
                 console.log("error")
                 showAlert(message + ": " + user_data["error"], 'error', 'Error occured!...');
+                closeModal();
             });
 
             reset();

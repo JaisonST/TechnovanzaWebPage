@@ -30,7 +30,7 @@ function load_events() {
 // 2. Clear Modal on reload before creating teamm member details
 
 // Takes the number of team members and creates a multiple member name and email textfields
-function createMembers(id = 5) {
+function createMembers(id) {
 
     var eventName = document.getElementById("eventName");
     var EventName = document.getElementById("EventName");
@@ -44,8 +44,8 @@ function createMembers(id = 5) {
     var teamName = document.querySelector("#TeamName");
     isTeam = id;
 
-    if (isTeam > 1){
-        
+    if (isTeam > 1) {
+
         console.log("%cAdding hidden and required", "color: cyan");
         teamName.setAttribute("required", '');
         teamNameInp.removeAttribute("hidden");
@@ -62,8 +62,7 @@ function createMembers(id = 5) {
     DeleteChildElements("memberFields");
 
     memberFields.innerHTML = "";
-    for (let i = 1; i <= parseInt(events[id - 1]["isTeam"]); i++) 
-    {
+    for (let i = 1; i <= parseInt(events[id - 1]["isTeam"]); i++) {
         memberFields.innerHTML += `
             <div class="d-flex align-items-center">
                 <div class="input-block member-no-modal">
@@ -72,78 +71,54 @@ function createMembers(id = 5) {
                 <div style="width: 10%;">
                 </div>
                 <div class="input-block email-input-modal" >
-                <input type="text" id="${i}_email" name="members[]" placeholder="Email" required>
+                <input type="text" id="${i}" name="members[]" placeholder="Email" required>
                 </div>
             </div>
-            `;   
-            // memberFields.innerHTML += `
-            //     <div class="d-flex align-items-center" style="justify-content: space-around;">   
-            //         <div class="input-block" style="width: 8%; border: none;">
-            //         </div> 
-            //         <div class="input-block" style="width: 14%;">
-            //             <label type="text" id=>#${i}</label>
-            //             </div> 
-            //             <div class="input-block" style="width: 60%;">
-            //             <input type="text" id="${i}_email" name="members[]" placeholder="Email" required>
-            //             </div>
-            //         <div class="input-block" style="width: 8%; border: none;">
-            //         </div> 
-            //     </div>
-            //     `;            
+            `;
     }
 }
 
-function isStringNullOrWhiteSpace(str){
-    if( str === undefined || str === null
-                             || typeof str !== 'string'
-                             || str.match(/^ *$/) !== null )
-        return true;
-    else 
-        return false;
-}
+function ValidateEmail(email) {
 
-function ValidateEmail(email){
-    
     // Regex expression for email validation 
     var re = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
     if (!(re.test(email.toString()))) {
         return false;
     }
-    else 
-        return true;
-}
-
-function ValidateInputsByName(elementName, isEmail = 0){
-    invalidInputs = 0;
-    member_inputs = document.getElementsByName(elementName);
-    Array.from(member_inputs).forEach(element => {  
-        if( isStringNullOrWhiteSpace(element.value.toString()) )
-            invalidInputs  += 1;
-        if( isEmail == 1 && !ValidateEmail(element.value.toString()) )
-            invalidInputs += 1;
-        console.log("%cInvalid Input: " + invalidInputs.toString() 
-                    + " Member text: " + element.value.toString(), 'color: orange;');
-    });
-    if( invalidInputs > 0 )
-        return false;
     else
         return true;
 }
 
+function ValidateEmailsByName(elementName) {
+    validInputs = 0;
+    member_inputs = document.getElementsByName(elementName);
+    Array.from(member_inputs).forEach(element => {
+        if (isStringNullOrWhiteSpace(element.value.toString()) == false && ValidateEmail(element.value.toString())){
+            validInputs += 1;
+            
+            console.log("%cValid Input: " + validInputs.toString()
+            + " Member text: " + element.value.toString(), 'color: orange;');
+        }
+    });
+    if (validInputs >= 1)
+        return true;
+    else
+        return false;
+}
+
 function register_team() {
-    
+
     var emailValidation = document.getElementById("emailValidation");
     console.log(isTeam);
     var flag = 0;
     //Validate Team Name
-    if(isTeam > 1)
-    {
+    if (isTeam > 1) {
         console.log("No of members > 0 " + isTeam.toString())
         var teamName = document.getElementById("TeamName");
         var teamNameValidation = document.getElementById("teamNameValidation");
         teamNameValidation.innerHTML = "";
-        if( isStringNullOrWhiteSpace(teamName.value) ){
+        if (isStringNullOrWhiteSpace(teamName.value)) {
             flag += 1;
             // console.log('%cTeam > 1', 'color: Green;');
             console.log("%cTeam Name is not Valid. Flag = " + flag.toString(), 'color: yellow;');
@@ -153,15 +128,16 @@ function register_team() {
     }
 
     emailValidation.innerHTML = "";
-    if( ValidateInputsByName("members[]", 1) == false ){        
+    if (ValidateEmailsByName("members[]", 1) == true) {
         flag += 1;
         console.log("%cEmail(s) are not Valid. Flag = " + flag.toString(), 'color: red;');
-        emailValidation.innerHTML = "Email(s) are not Valid";    
-        emailValidation.setAttribute('style', 'color: red;');    
     }
-
-    if( flag == 0 )
-    {
+    
+    if(flag == 0){
+        emailValidation.innerHTML = "Email(s) are not Valid";
+        emailValidation.setAttribute('style', 'color: red;');
+    }
+    else {
         console.log("%cValidation Complete. Flag = " + flag.toString(), 'color: green;');
         // //Make request 
         res = request('https://www.technovanza-api.tk/events/registration', convertToJSON(["TeamName", "EventName", "members_email"]), "POST");
@@ -171,90 +147,70 @@ function register_team() {
                 event.data.then(event_data => {
                     showAlert("You have successfully registered for the event", "success", "Registered");
                     // $(modal_id).modal('hide');
+                    closeModal();
+
                 });
             }
-            else{
-                event.data.then(error_message =>{
+            else {
+                event.data.then(error_message => {
                     showAlert("Registration failed: " + error_message["error"], 'error', 'Error occured!...');
+                    closeModal();
                 });
             }
         });
     }
 }
 
-function get_info(){
-    var r = document.querySelector(':root');
+function register_team() {
 
-    const event_id = new URLSearchParams(window.location.search).get('id');
-    console.log(event_id);
-    var event = events[event_id-1];
+    var emailValidation = document.getElementById("emailValidation");
+    console.log(isTeam);
+    var flag = 0;
+    //Validate Team Name
+    if (isTeam > 1) {
+        console.log("No of members > 0 " + isTeam.toString())
+        var teamName = document.getElementById("TeamName");
+        var teamNameValidation = document.getElementById("teamNameValidation");
+        teamNameValidation.innerHTML = "";
+        if (isStringNullOrWhiteSpace(teamName.value)) {
+            flag += 1;
+            // console.log('%cTeam > 1', 'color: Green;');
+            console.log("%cTeam Name is not Valid. Flag = " + flag.toString(), 'color: yellow;');
+            teamNameValidation.innerHTML = "Enter a Team Name";
+            teamNameValidation.setAttribute('style', 'color: red;');
+        }
+    }
 
-    infoSection = document.getElementById("infoLoad");
-    infoSection.innerHTML = `
-    <h1 class="title" id="room">${event.name}</h2>
-        <div class="about-content">
-            <div class="column left">
-                <img src="${event.src}" alt="">
-            </div>
-            <div class="column right">
-                <h2>About the event</h2>
-                <p>
-                    ${event.desc}
-                </p>
-                <br>
-                <h2>Timings</h2>
-                <div class="time">
-                    <p>${event.day1}</p>
-                    <p>${event.day2}</p>
-                </div>
-                <br>
-                <h2>Faculty Coordinator</h2>
-                <div class="faculty">
-                    <p>${event.faculty_coordinator}</p>
-                </div>
-                <br>
-                <h2>Student Coordinators</h2>
-                <div class="student">
-                    <p>${event.student_coordinators}</p>
-                </div>
-                <br>
-                <h2>Participant Count</h2>
-                <div class="count">
-                    <p>${event.isTeam}</p>
-                </div>
+    emailValidation.innerHTML = "";
+    if (ValidateEmailsByName("members[]", 1) == false) {
+        flag += 1;
+        console.log("%cEmail(s) are not Valid. Flag = " + flag.toString(), 'color: red;');
+        emailValidation.innerHTML = "Email(s) are not Valid";
+        emailValidation.setAttribute('style', 'color: red;');
+    }
 
-                <br><br>
-                <div class="modal-buttons">
-                    <button class="modal-button" onclick="openModal('registerEventModal', 'CloseRegisterEventModal'); ${ createMembers(event.isTeam) }">Register</button>
-                </div>
-            </div>
-        </div>
-    `;
+    if (flag == 0) {
+        console.log("%cValidation Complete. Flag = " + flag.toString(), 'color: green;'); 
 
-    r.style.setProperty('--room-name', `"${event.room}"`)
+        console.log(convertToJSON(["TeamName", "EventName", "members_email"]));
+
+        showAlert("You have successfully registered for the event", "success", "Registered");
+        closeModal();
+        // //Make request 
+        // res = request('https://www.technovanza-api.tk/events/registration', convertToJSON(["TeamName", "EventName", "members_email"]), "POST");
+        // console.log(res);
+        // res.then(event => {
+        //     if (event.status == 200) {
+        //         event.data.then(event_data => {
+        //             showAlert("You have successfully registered for the event", "success", "Registered");
+        //             // $(modal_id).modal('hide');
+        //         });
+        //     }
+        //     else{
+        //         event.data.then(error_message =>{
+        //             showAlert("Registration failed: " + error_message["error"], 'error', 'Error occured!...');
+        //         });
+        //     }
+        // });
+    }
 }
-
-// SANIA's FUNCTION
-// function register_team() {
-
-//     //Validate entries
-
-//     // //Make request
-//     res = request('https://www.technovanza-api.tk/events/registration', convertToJSON(["TeamName", "EventName", "members_email"]), "POST");
-//     console.log(res);
-//     res.then(event => {
-//         if (event.status == 200) {
-//             event.data.then(event_data => {
-//                 showAlert("#eventModal", "You have successfully registered for the event", "success", "Registered");
-//                 // $(modal_id).modal('hide');
-//             });
-//         }
-//         else{
-//             event.data.then(error_message =>{
-//                 showAlert("#myModal", "Registration failed: " + error_message["error"], 'error', 'Error occured!...');
-//             });
-//         }
-//     });
-// }
-
-//eventName

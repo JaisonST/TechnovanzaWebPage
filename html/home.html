@@ -117,6 +117,9 @@
 <script src="/js/scanned_event.js"></script>
 <script src="/js/registered_event.js"></script>
 <script src="/js/event_create.js"></script>
+<!-- If Scan is modal -->
+<script src="/js/modal.js"></script>
+<script src="/js/scan.js"></script>
 <script>
   document.getElementById("welcome").innerHTML = `${getCookie("user_name")}`;
 
@@ -125,7 +128,7 @@
     hidden = ""
   }
   else {
-    firstChild.innerHTML = `<a href="#skills" class="menu-btn">Scans</a>`;
+    firstChild.innerHTML = `<a href="/html/scan.html" class="menu-btn">Scans</a>`;
   }
 </script>
 
