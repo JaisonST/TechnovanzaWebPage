@@ -88,12 +88,13 @@
   transform: translateY(5px);
 }
 
+/* HEIGHT CHANGE MADE */
 .modal-right {
   flex: 2;
   font-size: 0;
   transition: 0.3s all ease-in-out;
   overflow: hidden;
-  max-height: 485px;
+  max-height: 550px;
 }
 
 .modal-right img {
