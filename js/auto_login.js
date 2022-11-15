@@ -1,5 +1,3 @@
-autoLogin();
-
 //Get cookie - on login 
 function autoLogin() {
     if (getCookie("user_email") !== "" && getCookie("user_name") !== "") {
@@ -13,6 +11,13 @@ function autoLogin() {
             console.log("The cookie is null");
             window.location.href = "/html/index.html";
         }
+    }
+}
+
+function checkValid(){
+    if (getCookie("user_email") == "" && getCookie("user_name") == ""){
+        console.log("why")
+        location.href = "/html/index.html";
     }
 }
 
