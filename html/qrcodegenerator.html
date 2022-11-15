@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type ="text/css" href="qrgen.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/79bc43ea80.js" crossorigin="anonymous"></script>
+  <title>Website</title>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Enter your Email:</h1>
+    </div>
+    <div class="input-form">
+      <input type="text" class="qr-input" placeholder="Enter email">
+      <button type="button" class="generate-btn" data-toggle="modal" data-target="#myModal">Submit</button>
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog"> 
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Profile</h4><hr>
+            </div>
+            <div class="modal-body">
+              <div id="display_image"></div>
+              <label for="image_input"><i class="fa-solid fa-camera" style="align-content: center;"></i></label>
+              <input type="file" name=""id="image_input" style="display:none;visibility:none;"accept="image/png, image/jpg">
+              <p>Name: <br> Email:  <br></p>
+                <img src="C:\Users\Fatima Khan\Desktop\qrcode.png" class="qr-image">
+            </div>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="qrcodejs.js"></script>
+<script src="picturedisp.js"></script>
+</body>
+</html>
