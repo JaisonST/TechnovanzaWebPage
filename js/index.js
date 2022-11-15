@@ -65,6 +65,8 @@ function handle_response(res, message, modal_id){
                 console.log("error")
                 showAlert(message + ": " + user_data["error"], 'error', 'Error occured!...');
             });
+
+            reset();
         }
     });
 }
