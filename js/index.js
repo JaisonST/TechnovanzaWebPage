@@ -74,7 +74,7 @@ function validate(email, password) {
     var re = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
     // Regex expression for password validation 
-    var pre = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,40}$/;
+    // var pre = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,40}$/;
 
     // To keep track of validated fields 
     flag = 0;
@@ -91,8 +91,8 @@ function validate(email, password) {
     }
 
     passwordValidation = document.getElementById("passwordValidation");
-    if (!pre.test(password)) {
-        passwordValidation.innerHTML = "Password should be atleast 8 characters, containing atleast 1 digit, uppercase letter and special character";
+    if (password.length < 6) {
+        passwordValidation.innerHTML = "Password should be atleast 6 characters";
         passwordValidation.removeAttribute("hidden");
     }
     else {
