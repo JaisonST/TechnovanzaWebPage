@@ -7,6 +7,9 @@ function register_user() {
         handle_response(res, "User registration failed", "#registerModal");
     }
 
+    regBtn = document.getElementById("regBtn");
+    regBtn.innerHTML = "Loading...";
+
     // Clear text fields 
     username.value = '';
     password.value = '';
@@ -21,6 +24,9 @@ function login_user() {
         res = request('https://www.technovanza-api.tk/login', convertToJSON(["email", "password"]), "POST", email.value);
         handle_response(res, "User login failed", "#loginModal");
     }
+
+    loginBtn = document.getElementById("loginBtn");
+    loginBtn.innerHTML = "Loading...";
 
     // Clear text fields 
     password.value = '';
@@ -50,6 +56,7 @@ function handle_response(res, message, modal_id){
                 document.cookie = `user_id=${user_data["user_data"]["id"]}; expires=` + date.toGMTString();
                 document.cookie = `user_role=${user_data["user_data"]["role"]}; expires=` + date.toGMTString();
                 
+
                 window.location = '/html/home.html';
             });
         }

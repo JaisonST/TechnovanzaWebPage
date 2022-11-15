@@ -1,3 +1,11 @@
+function reset(){
+    loginBtn = document.getElementById("loginBtn");
+    loginBtn.innerHTML = "Login";
+
+    regBtn = document.getElementById("regBtn");
+    regBtn.innerHTML = "Register";
+}
+
 //Get cookie - on login 
 function autoLogin() {
     if (getCookie("user_email") !== "" && getCookie("user_name") !== "") {
