@@ -65,19 +65,31 @@ function createMembers(id = 5) {
     for (let i = 1; i <= parseInt(events[id - 1]["isTeam"]); i++) 
     {
         memberFields.innerHTML += `
-            <div class="d-flex align-items-center" style="justify-content: space-around;">   
-                <div class="input-block" style="width: 8%; border: none;">
-                </div> 
-                <div class="input-block" style="width: 14%;">
+            <div class="d-flex align-items-center">
+                <div class="input-block member-no-modal">
                     <label type="text" id=>#${i}</label>
-                    </div> 
-                    <div class="input-block" style="width: 60%;">
-                    <input type="text" id="${i}_email" name="members[]" placeholder="Email" required>
-                    </div>
-                <div class="input-block" style="width: 8%; border: none;">
                 </div> 
+                <div style="width: 10%;">
+                </div>
+                <div class="input-block email-input-modal" >
+                <input type="text" id="${i}_email" name="members[]" placeholder="Email" required>
+                </div>
             </div>
-            `;            
+            `;   
+            // memberFields.innerHTML += `
+            //     <div class="d-flex align-items-center" style="justify-content: space-around;">   
+            //         <div class="input-block" style="width: 8%; border: none;">
+            //         </div> 
+            //         <div class="input-block" style="width: 14%;">
+            //             <label type="text" id=>#${i}</label>
+            //             </div> 
+            //             <div class="input-block" style="width: 60%;">
+            //             <input type="text" id="${i}_email" name="members[]" placeholder="Email" required>
+            //             </div>
+            //         <div class="input-block" style="width: 8%; border: none;">
+            //         </div> 
+            //     </div>
+            //     `;            
     }
 }
 
