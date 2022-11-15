@@ -31,7 +31,7 @@ function convertToJSON(keys) {
         else {
             if (element == "members_email") {
                 var emails = [];
-                $('#members_email input').each(function () {
+                $('input[name="members[]"]').each(function () {
                     emails.push({"email": `${this.value}`});
                 });
 
