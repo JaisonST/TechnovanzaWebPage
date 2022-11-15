@@ -125,6 +125,19 @@ const events = [
         "judging_criteria": "Finding the Imposter",
         "src" : "/css/posters/Skedaddle_through_time_2.jpg"
         
-    }
-    
+    },
+    {
+        "id" : 10, 
+        "name": "Robo Invasion",
+        "desc": "The robot alien invasion has fallen upon Manipal Dubai. How will you help stop the invasion? Come to the Robo Invasion and take the aliens under arrest. Using specially crafted spaceships, traverse the universe while battling against each space captain to see who can get the most aliens within the allocated time.",
+        "isTeam": 4,
+        "faculty_coordinator": "Amit Mondal | Farzeen Hasharaf",
+        "student_coordinators": "Vahin Reddy | Adithya Abhilash",
+        "room": "B-Block, Room B312",
+        "day1": "10:00 am to 3:00 pm & 5:30 pm to 8:30 pm",
+        "day2": "10:00 am to 3:00 pm",
+        "judging_criteria": "Most number of balls collected in the given time limit.",
+        "src" : "/css/posters/Robo_Invasion.png"
+
+    }    
 ];
