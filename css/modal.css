@@ -88,12 +88,13 @@
   transform: translateY(5px);
 }
 
+/* HEIGHT CHANGE MADE */
 .modal-right {
   flex: 2;
   font-size: 0;
   transition: 0.3s all ease-in-out;
   overflow: hidden;
-  max-height: 485px;
+  max-height: 550px;
 }
 
 .modal-right img {
@@ -236,7 +237,6 @@
   font-weight: 800;
   transform: translate(-50%, -50%);
 }
-
 .scroll-down svg {
   margin-top: 16px;
   width: 52px;
@@ -245,20 +245,6 @@
 
 .close-button-color{
   fill: #fff;
-}
-
-@media (max-width: 750px) {
-  .modal-container {
-    width: 90%;
-  }
-
-  .modal-right {
-    display: none;
-  }
-
-  .close-button-color{
-    fill: #000;
-  }
 }
 
 .modal-links{
@@ -280,4 +266,53 @@
 .justify-content-center{
   justify-content: center;
 }
+.member-fields {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  padding: 0px; 
+  width: 100% !important;
+  padding-left:(.5rem, 1.5rem, 2.5rem);
+  padding-right:(.5rem, 1.5rem, 2.5rem);
+}
 
+.teamName-input{
+  width: 100%;
+  min-width: 200px;
+}
+
+.member-no-modal{
+  width: 8%; 
+  min-width: 40px ;
+}
+
+.email-input-modal{
+  width: 70%;
+  min-width: 200px;
+}
+
+@media (max-width: 750px) {
+  .modal-container {
+    width: 90%;
+  }
+
+  .modal-right {
+    display: none;
+  }
+
+  .close-button-color{
+    fill: #000;
+  }
+
+  .email-input-modal{
+    width: 60%;
+    min-width: 150px;
+  }
+}
+
+@media (max-width: 360px) {
+  .email-input-modal{
+    width: 40%;
+    min-width: 140px;
+  }
+}

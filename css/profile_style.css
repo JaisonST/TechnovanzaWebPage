@@ -125,8 +125,8 @@ img{
 .profile_modal__close{
   display: inline-flex;
   background-color: var(--first-color);
-  border-radius: .25rem;
   color: #FFF;
+  border-radius: .25rem;
   font-size: 1.5rem;
   position: absolute;
   top: 2rem;

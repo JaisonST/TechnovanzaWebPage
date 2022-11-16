@@ -55,11 +55,13 @@
                 <div class="text-1">Hi, Welcome Onboard!</div>
                 <div class="text-2">Technovanza</div>
                 <div class="text-3">Events: <span class="typing"></span></div>
-                <button id="registerBtn" class="register-btn" onclick="openModal('registerModal', 'CloseRegisterModal')">Register Here</button>
+                <button id="registerBtn" class="register-btn"
+                    onclick="openModal('registerModal', 'CloseRegisterModal')">Register Here</button>
             </div>
         </div>
     </section>
 
+    <!-- LOGIN MODAL -->
     <!-- LOGIN MODAL -->
     <div class="modal" id="loginModal">
         <div class="modal-container">
@@ -70,15 +72,24 @@
                     <label for="email" class="input-label">Email</label>
                     <input type="email" name="email" id="email" placeholder="Email">
                 </div>
+                <div id="emailValidationLogin" style="color: red; font-size: 12px;" class="d-flex align-items-center"
+                    hidden>
+
+                </div>
                 <div class="input-block">
                     <label for="password" class="input-label">Password</label>
                     <input type="password" name="password" id="password" placeholder="Password">
+                </div>
+                <div id="passwordValidationLogin" style="color: red; font-size: 12px;" class="d-flex align-items-center"
+                    hidden>
+
                 </div>
                 <div class="modal-buttons">
                     <!-- <a href="" class="">Forgot your password?</a> -->
                     <button class="modal-button" onclick="login_user();" id="loginBtn">Login</button>
                 </div>
-                <p class="sign-up">Don't have an account? <button class="modal-links" onclick="closeModal(); openModal('registerModal', 'CloseRegisterModal');">Register</button></p>
+                <p class="sign-up">Don't have an account? <button class="modal-links"
+                        onclick="closeModal(); openModal('registerModal', 'CloseRegisterModal');">Register</button></p>
             </div>
             <div class="modal-right">
                 <!-- FOR EVENT REGISTRATION -->
@@ -86,7 +97,9 @@
                 <!-- FOR REGISTRATION -->
                 <!-- <img src="/css/images/loginCube.jpg" alt=""> -->
                 <!-- <img src="/css/images/loginCube2.jpg" alt=""> -->
-                <img src="/css/images/techno.jpg" alt="" style="max-height: 413px;">
+                <img src="/css/images/techno.jpg" alt="" style="height: 450px;">
+                <!-- <img src="/css/images/techno.gif" alt=""> -->
+                <!-- <img src="/css/images/image_processing20200327-4295-1f228v.gif" alt=""> -->
                 <!-- FOR LOGIN -->
                 <!-- <img src="/css/images/technovanza.jpeg" alt=""> -->
                 <!-- <img src="/css/images/cyberglitch.jpg" alt=""> -->
@@ -118,6 +131,11 @@
                     <label for="username" class="input-label">Name</label>
                     <input type="text" name="name" id="usernameTextField" placeholder="Full Name">
                 </div>
+
+                <!-- Added Username Error Message -->
+                <div id="usernameValidation" style="color: red; font-size: 12px;" class="d-flex align-items-center"
+                    hidden>
+                </div>
                 <div class="input-block">
                     <label for="email" class="input-label">Email</label>
                     <input type="email" name="email" id="emailTextField" placeholder="Email">
@@ -129,15 +147,18 @@
                     <label for="password" class="input-label">Password</label>
                     <input type="password" name="password" id="passwordTextField" placeholder="Password">
                 </div>
-                <div id="passwordValidation" style="color: red; font-size: 12px;" class="d-flex align-items-center" hidden> 
+                <div id="passwordValidation" style="color: red; font-size: 12px;" class="d-flex align-items-center"
+                    hidden>
 
                 </div>
                 <div class="modal-buttons">
                     <br>
                     <!-- <a href="" class="">Forgot your password?</a> -->
-                    <button class="modal-button" onclick="register_user();" id="regBtn">Register</button>
+                    <button class="modal-button" onclick="register_user();" id="regBtn"
+                        style="margin-top: 10px;">Register</button>
                 </div>
-                <p class="sign-up">Already have an account? <button class="modal-links" onclick="closeModal(); openModal('loginModal', 'CloseLoginModal');">Login</button></p>
+                <p class="sign-up">Already have an account? <button class="modal-links"
+                        onclick="closeModal(); openModal('loginModal', 'CloseLoginModal');">Login</button></p>
             </div>
             <div class="modal-right">
                 <!-- FOR EVENT REGISTRATION -->
@@ -166,7 +187,7 @@
             </button>
         </div>
     </div>
-
+    
     <!-- about section start -->
     <section class="about" id="about">
         <div class="max-width">
@@ -251,6 +272,18 @@
                         <div class="texts">Electrothon</div>
                     </div>
                 </div>
+                <div class="card event-card">
+                    <div class="box">
+                        <img src="/css/posters/Robo_Invasion.jpg" alt="">
+                        <div class="texts">Robo Invasion</div>
+                    </div>
+                </div>
+                <div class="card event-card">
+                    <div class="box">
+                        <img src="/css/posters/Find_the_Key.png" alt="">
+                        <div class="texts">Find the Key</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -303,7 +336,7 @@
                     </div>
                 </div>
                 <div class="container">
-                    <img src="/css/profiles/Brandon.jpeg" alt="Avatar" class="image">
+                    <img src="/css/profiles/Brandon.jpg" alt="Avatar" class="image">
                     <div class="overlay">
                         <div class="text">Brandon Rodrigues</div>
                         <div class="subtitle">Frontend Dev</div>
@@ -324,7 +357,7 @@
                     </div>
                 </div>
                 <div class="container">
-                    <img src="/css/profiles/placeholder.png" alt="Avatar" class="image">
+                    <img src="/css/profiles/Akshit.jpg" alt="Avatar" class="image">
                     <div class="overlay">
                         <div class="text">Akshit Sahni</div>
                         <div class="subtitle">Head of Events</div>
@@ -338,14 +371,14 @@
                     </div>
                 </div>
                 <div class="container">
-                    <img src="/css/profiles/placeholder.png" alt="Avatar" class="image">
+                    <img src="/css/profiles/Andrina.jpeg" alt="Avatar" class="image">
                     <div class="overlay">
                         <div class="text">Andrina Martin</div>
                         <div class="subtitle">Head of Publicity | Head of Volunteers</div>
                     </div>
                 </div>
                 <div class="container">
-                    <img src="/css/profiles/placeholder.png" alt="Avatar" class="image">
+                    <img src="/css/profiles/Sohan.jpg" alt="Avatar" class="image">
                     <div class="overlay">
                         <div class="text">Sohan Tuljapur</div>
                         <div class="subtitle">Head of Publicity | Head of Volunteers</div>
@@ -362,7 +395,8 @@
                     <img src="/css/profiles/Haji.jpg" alt="Avatar" class="image">
                     <div class="overlay">
                         <div class="text">Abdullah Haji</div>
-                        <div class="subtitle" style="top: 92%;">Head of Facilities Management | Head of Partnership</div>
+                        <div class="subtitle" style="top: 92%;">Head of Facilities Management | Head of Partnership
+                        </div>
                     </div>
                 </div>
                 <div class="container">

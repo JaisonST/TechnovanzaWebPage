@@ -124,7 +124,33 @@ const events = [
         "day2": "",
         "judging_criteria": "Finding the Imposter",
         "src" : "/css/posters/Skedaddle_through_time_2.jpg"
-        
-    }
-    
+    },
+    {
+        "id" : 10, 
+        "name": "Robo Invasion",
+        "desc": "The robot alien invasion has fallen upon Manipal Dubai. How will you help stop the invasion? Come to the Robo Invasion and take the aliens under arrest. Using specially crafted spaceships, traverse the universe while battling against each space captain to see who can get the most aliens within the allocated time.",
+        "isTeam": 4,
+        "faculty_coordinator": "Amit Mondal | Farzeen Hasharaf",
+        "student_coordinators": "Vahin Reddy | Adithya Abhilash",
+        "room": "B-Block, Room B312",
+        "day1": "10:00 am to 3:00 pm & 5:30 pm to 8:30 pm",
+        "day2": "10:00 am to 3:00 pm",
+        "judging_criteria": "Most number of balls collected in the given time limit.",
+        "src" : "/css/posters/Robo_Invasion.jpg"
+    },
+    // {
+    //     "id" : 11, 
+    //     "name": "Find the key",
+    //     "desc": `An event that challenges the intellectuals to complete a series of trials and tribulation to find the key and make way out of the dark and eerie laboratory.an open mind and an outside the box thinking is required to escape this room.
+    //     Will you be able to escape the room before It's too late? Find out now by visiting "find the key" event happening in b-310 on 16th and 17th November from 9:00 a.m-2:00 p.m`,
+    //     "isTeam": 1,
+    //     "faculty_coordinator": "Shoba Francis",
+    //     "student_coordinators": "Sanchita | Astha | Hashim | Dhruv",
+    //     "room": "B310",
+    //     "day1": "16th : 9:00 am - 2:00 pm",
+    //     "day2": "17th : 9:00 am - 2:00 pm",
+    //     "judging_criteria": "Time taken to escape",
+    //     "src" : "/css/posters/Skedaddle_through_time_2.jpg"
+    // }
+
 ];

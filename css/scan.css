@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  --hue: 240;
+  --first-color: hsl(var(--hue), 16%, 18%);
+  --first-color-alt: hsl(var(--hue), 16%, 12%);
+  --title-color: hsl(var(--hue), 8%, 15%);
+  --text-color: hsl(var(--hue), 8%, 35%);
+  --body-color: hsl(var(--hue), 100%, 99%);
+  --container-color: #FFF;
+  --black: #1a1a23;
+  /*========== Font and typography ==========*/
+  --body-font: 'Poppins', sans-serif;
+  --big-font-size: 1.5rem;
+  --normal-font-size: .938rem;
+
+  /*========== z index ==========*/
+  --z-modal: 1000;
+}
+
+* {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+#qr-reader {
+  font-family: 'Poppins', sans-serif !important;
+  border-radius: 5px;
+}
+
+.modal-title {
+  font-size: var(--big-font-size);
+  color: var(--title-color);
+  font-weight: 500;
+}
+
+#event_choice {
+  padding: 10px !important;
+  width: 100%;
+  border-radius: 10px;
+}
+#event_choice:active {  
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+}
+
+#event_choice select {
+  padding: 50px !important;
+}
+
+#qr-reader {
+  height: 60%;
+}
+
+#qr-reader div span a {
+  display: none !important;
+}
+
+/* Grandfather dashboard */
+#qr-reader__dashboard {
+  width: 95% !important;
+}
+
+/* Parent Dashboard */
+#qr-reader__dashboard_section {
+  width: 100% !important;
+  padding: 5px !important;
+}
+
+/* Child Dashboard 
+#qr-reader__dashboard_section_csr { 
+  display: none;
+} 
+
+  #qr-reader__dashboard_section_fsr { 
+  display: none !important; 
+} */
+
+#qr-reader__dashboard_section_swaplink {
+  display: none !important;
+}
+
+#qr-reader__status_span {
+  display: none !important;
+}
+
+/* #qr-reader__dashboard_section_csr span 
+  /* display: none;   */
+
+/* #qr-reader__dashboard_section_csr span select{ 
+  display: none; 
+}   */
+
+/* Request Camera Permissions */
+#qr-reader__dashboard_section_csr div button {
+  background-color: var(--black) !important;
+  color: #FFF !important;
+  border-radius: 0.2rem !important;
+  transition: .3s !important;
+  margin-bottom: 20px !important;
+}
+
+.modal-buttons #scan__button {
+  display: inline-block;
+  background-color: var(--black) !important;
+  color: #FFF !important;
+  padding: 1rem 1.25rem !important;
+  border-radius: 0.5rem !important;
+  transition: .3s !important;
+  /* font-family: var(--body-font)!important; */
+  font-family: 'Poppins', 'sans-serif' !important;
+  font-size: var(--normal-font-size) !important;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  width: 90% !important;
+}
+
+.scan_modal__content{
+  position: relative;
+  background-color: var(--container-color);
+  text-align: center;
+  padding: 3rem 2rem 2rem;
+  border-radius: 1rem 1rem 0 0;
+  transition: all .3s;
+
+  /*=== Effect 1 ===*/
+  transform: translateY(10%);
+
+}
