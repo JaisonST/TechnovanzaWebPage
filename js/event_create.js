@@ -108,7 +108,6 @@ function ValidateEmailsByName(elementName) {
 }
 
 function register_team() {
-
     var emailValidation = document.getElementById("emailValidation");
     console.log(isTeam);
     var flag = 0;
@@ -141,7 +140,7 @@ function register_team() {
         console.log("%cValidation Complete. Flag = " + flag.toString(), 'color: green;');
         // //Make request 
         res = request('https://www.technovanza-api.tk/events/registration', convertToJSON(["TeamName", "EventName", "members_email"]), "POST");
-        console.log(res);
+        console.log("RESSSS", res);
         res.then(event => {
             if (event.status == 200) {
                 event.data.then(event_data => {
@@ -161,41 +160,41 @@ function register_team() {
     }
 }
 
-function register_team() {
+// function register_team() {
 
-    var emailValidation = document.getElementById("emailValidation");
-    console.log(isTeam);
-    var flag = 0;
-    //Validate Team Name
-    if (isTeam > 1) {
-        console.log("No of members > 0 " + isTeam.toString())
-        var teamName = document.getElementById("TeamName");
-        var teamNameValidation = document.getElementById("teamNameValidation");
-        teamNameValidation.innerHTML = "";
-        if (isStringNullOrWhiteSpace(teamName.value)) {
-            flag += 1;
-            // console.log('%cTeam > 1', 'color: Green;');
-            console.log("%cTeam Name is not Valid. Flag = " + flag.toString(), 'color: yellow;');
-            teamNameValidation.innerHTML = "Enter a Team Name";
-            teamNameValidation.setAttribute('style', 'color: red;');
-        }
-    }
+//     var emailValidation = document.getElementById("emailValidation");
+//     console.log(isTeam);
+//     var flag = 0;
+//     //Validate Team Name
+//     if (isTeam > 1) {
+//         console.log("No of members > 0 " + isTeam.toString())
+//         var teamName = document.getElementById("TeamName");
+//         var teamNameValidation = document.getElementById("teamNameValidation");
+//         teamNameValidation.innerHTML = "";
+//         if (isStringNullOrWhiteSpace(teamName.value)) {
+//             flag += 1;
+//             // console.log('%cTeam > 1', 'color: Green;');
+//             console.log("%cTeam Name is not Valid. Flag = " + flag.toString(), 'color: yellow;');
+//             teamNameValidation.innerHTML = "Enter a Team Name";
+//             teamNameValidation.setAttribute('style', 'color: red;');
+//         }
+//     }
 
-    emailValidation.innerHTML = "";
-    if (ValidateEmailsByName("members[]", 1) == false) {
-        flag += 1;
-        console.log("%cEmail(s) are not Valid. Flag = " + flag.toString(), 'color: red;');
-        emailValidation.innerHTML = "Email(s) are not Valid";
-        emailValidation.setAttribute('style', 'color: red;');
-    }
+//     emailValidation.innerHTML = "";
+//     if (ValidateEmailsByName("members[]", 1) == false) {
+//         flag += 1;
+//         console.log("%cEmail(s) are not Valid. Flag = " + flag.toString(), 'color: red;');
+//         emailValidation.innerHTML = "Email(s) are not Valid";
+//         emailValidation.setAttribute('style', 'color: red;');
+//     }
 
-    if (flag == 0) {
-        console.log("%cValidation Complete. Flag = " + flag.toString(), 'color: green;'); 
+//     if (flag == 0) {
+//         console.log("%cValidation Complete. Flag = " + flag.toString(), 'color: green;'); 
 
-        console.log(convertToJSON(["TeamName", "EventName", "members_email"]));
+//         console.log(convertToJSON(["TeamName", "EventName", "members_email"]));
 
-        showAlert("You have successfully registered for the event", "success", "Registered");
-        closeModal();
+//         showAlert("You have successfully registered for the event", "success", "Registered");
+//         closeModal();
         // //Make request 
         // res = request('https://www.technovanza-api.tk/events/registration', convertToJSON(["TeamName", "EventName", "members_email"]), "POST");
         // console.log(res);
@@ -212,5 +211,5 @@ function register_team() {
         //         });
         //     }
         // });
-    }
-}
+//     }
+// }
