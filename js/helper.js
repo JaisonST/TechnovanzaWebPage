@@ -53,7 +53,7 @@ function isStringNullOrWhiteSpace(str) {
 
 // POST/GET requests
 async function request(url, data, method) {
-    console.log(url)
+    console.log("URL", url)
     console.log(data);
     const res = await fetch(url, {
         method: method,
@@ -62,7 +62,7 @@ async function request(url, data, method) {
         },
         body: data
     });
-
+    
     response = {
         "status": res.status,
         "data": res.json(),
