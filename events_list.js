@@ -132,7 +132,7 @@ const events = [
         "isTeam": 4,
         "faculty_coordinator": "Amit Mondal | Farzeen Hasharaf",
         "student_coordinators": "Vahin Reddy | Adithya Abhilash",
-        "room": "B-Block, Room B312",
+        "room": "Room B312",
         "day1": "10:00 am to 3:00 pm & 5:30 pm to 8:30 pm",
         "day2": "10:00 am to 3:00 pm",
         "judging_criteria": "Most number of balls collected in the given time limit.",
