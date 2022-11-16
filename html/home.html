@@ -4,15 +4,29 @@
 <head>
   <title>Technovanza'22 | Home </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+  <!-- Sweet Alert -->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+
+  <!--================= QRSCANNER.js ===================-->
+  <script src="https://unpkg.com/html5-qrcode@2.0.9/dist/html5-qrcode.min.js"></script>
+
+  <link rel="stylesheet" href="/css/modal.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/scan.css">
+  <link rel="shortcut icon" href="#" />
 
   <link rel="stylesheet" href="/css/home_style.css">
   <!--=============== Profile Page Imports ===============-->
@@ -88,6 +102,53 @@
     </div>
   </div>
 
+  <!-- SCAN MODAL -->
+  <div class="modal" id="scanModalButton">
+    <div class="modal-container" style="min-height: 650px !important; max-width: 400px;">
+      <div class="modal-left">
+        <h1 class="modal-title" style="display: flex; justify-content: center;">Scan QR</h1>
+        <p class="modal-desc"></p>
+        <div id="qr-reader"></div>
+        <br>
+
+        <!-- EVENT -->
+        <select id="event_choice">
+          <!-- <option> Event List</option> -->
+          <option value="" disabled selected>Select Event</option>
+          <option value="Electrothon">Electrothon</option>
+          <option value="Escape_room">Escape room</option>
+          <option value="Lazer_maze">Lazer maze</option>
+          <option value="Lost_Treasure">Lost Treasure</option>
+          <option value="Homeprotek">Homeprotek</option>
+          <option value="Hydrojet">Hydrojet</option>
+          <option value="Skedaddle_Through_Time">Skedaddle Through Time</option>
+          <option value="SniffLicious">SniffLicious</option>
+          <option value="Robo_Invasion">Robo Invasion</option>
+        </select>
+        <br><br>
+        <div class="modal-buttons" style="margin-bottom: 50px !important;">
+          <button class="scan_modal__button" id="scan__button" onclick="submitscan();">Submit</button>
+        </div>
+        <p hidden>Scanned email id: </p>
+        <p id="scanned_result" hidden></p>
+      </div>
+      <button class="icon-button close-button" id="CloseScanModalButton">
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px" y="0px" viewBox="0 0 26 26" style="enable-background:new 0 0 26 26;" xml:space="preserve">
+          <g>
+            <path style="fill: #000 !important;" d="M21.125,0H4.875C2.182,0,0,2.182,0,4.875v16.25C0,23.818,2.182,26,4.875,26h16.25
+                    C23.818,26,26,23.818,26,21.125V4.875C26,2.182,23.818,0,21.125,0z M18.78,17.394l-1.388,1.387c-0.254,0.255-0.67,0.255-0.924,0
+                    L13,15.313L9.533,18.78c-0.255,0.255-0.67,0.255-0.925-0.002L7.22,17.394c-0.253-0.256-0.253-0.669,0-0.926l3.468-3.467
+                    L7.221,9.534c-0.254-0.256-0.254-0.672,0-0.925l1.388-1.388c0.255-0.257,0.671-0.257,0.925,0L13,10.689l3.468-3.468
+                    c0.255-0.257,0.671-0.257,0.924,0l1.388,1.386c0.254,0.255,0.254,0.671,0.001,0.927l-3.468,3.467l3.468,3.467
+                    C19.033,16.725,19.033,17.138,18.78,17.394z" />
+          </g>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+
   <!-- skills section start -->
   <section class="skills" id="skills">
     <div class="max-width">
@@ -117,7 +178,6 @@
 <script src="/js/scanned_event.js"></script>
 <script src="/js/registered_event.js"></script>
 <script src="/js/event_create.js"></script>
-<!-- If Scan is modal -->
 <script src="/js/modal.js"></script>
 <script src="/js/scan.js"></script>
 <script>
@@ -128,7 +188,7 @@
     hidden = ""
   }
   else {
-    firstChild.innerHTML = `<a href="/html/scan.html" class="menu-btn">Scans</a>`;
+    firstChild.innerHTML = `<a class="menu-btn" onclick="openModal('scanModalButton', 'CloseScanModalButton', 2)">Scans</a>`;
   }
 </script>
 

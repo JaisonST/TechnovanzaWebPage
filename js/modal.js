@@ -14,7 +14,7 @@ function openModal(modal_id, close_id, isEventRegistration = 0){
     usernameValidation.innerHTML = emailValidation.innerHTML = passwordValidation.innerHTML = emailValidationLogin.innerHTML = passwordValidationLogin.innerHTML = "";
     console.log("%cClearing Error Messages in Login/Registration Modal. ", 'color: dodgerblue;');
   }
-  else{
+  else if( isEventRegistration == 1){
     teamNameValidation = document.getElementById("teamNameValidation");
     emailValidation = document.getElementById("emailValidation");
     
