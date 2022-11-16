@@ -25,14 +25,13 @@ function get_scanned() {
         events_list.then(res => res.data).
         then(events => {
             timings = [];
-            time = events.logs[1]["date"];
-            time = moment(time).format('MM/DD/YYYY || h:mma');
-            timings.push(time);
-
             scan_event = [];
             scan_list = events.logs;
             scan_list.forEach(ele => {
                 scan_event.push(map_name(ele["event"]));
+                time = ele["date"];
+                time = moment(time).format('MM/DD/YYYY || h:mma');
+                timings.push(time);
             });
             
             display_scanned(scan_event, timings);

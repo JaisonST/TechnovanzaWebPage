@@ -36,7 +36,7 @@ async function getParticipant(eventname) {
 function get_info() {
     hidden = "";
 
-    if (getCookie("isVolunteer") == "") {
+    if (getCookie("user_isVolunteer") == "") {
         hidden = "hidden";
     }
     else {

@@ -20,10 +20,6 @@
   --z-modal: 1000;
 }
 
-* {
-  font-family: 'Poppins', sans-serif !important;
-}
-
 #qr-reader {
   font-family: 'Poppins', sans-serif !important;
   border-radius: 5px;
@@ -108,7 +104,6 @@
   padding: 1rem 1.25rem !important;
   border-radius: 0.5rem !important;
   transition: .3s !important;
-  /* font-family: var(--body-font)!important; */
   font-family: 'Poppins', 'sans-serif' !important;
   font-size: var(--normal-font-size) !important;
   cursor: pointer;
@@ -125,7 +120,6 @@
   border-radius: 1rem 1rem 0 0;
   transition: all .3s;
 
-  /*=== Effect 1 ===*/
   transform: translateY(10%);
 
 }
