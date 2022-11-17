@@ -27,22 +27,26 @@ function get_scanned() {
             timings = [];
             scan_event = [];
             scan_list = events.logs;
+            console.log(scan_list);
+
             scan_list.forEach(ele => {
-                scan_event.push(map_name(ele["event"]));
+                scan_event.push(map_scan_name(ele["event"]));
                 time = ele["date"];
                 time = moment(time).format('MM/DD/YYYY || h:mma');
                 timings.push(time);
             });
             
+            console.log("Scan Event", scan_event);
+
             display_scanned(scan_event, timings);
         })
     }
 
 }
 
-// Name to id mapping
-function map_name(name) {
+// Name to event_list mapping
+function map_scan_name(name) {
     name = name.replaceAll('_', ' ');
-    var findEvent = events.find(x => x.name == name);
+    var findEvent = events.find(x => x.name.toLowerCase() == name.toLowerCase());
     return findEvent;
 }
