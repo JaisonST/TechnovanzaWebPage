@@ -129,7 +129,7 @@ const events = [
         "id" : 10, 
         "name": "Robo Invasion",
         "desc": "The robot alien invasion has fallen upon Manipal Dubai. How will you help stop the invasion? Come to the Robo Invasion and take the aliens under arrest. Using specially crafted spaceships, traverse the universe while battling against each space captain to see who can get the most aliens within the allocated time.",
-        "isTeam": 4,
+        "isTeam": 1,
         "faculty_coordinator": "Amit Mondal | Farzeen Hasharaf",
         "student_coordinators": "Vahin Reddy | Adithya Abhilash",
         "room": "Room B312",
