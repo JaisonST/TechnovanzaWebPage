@@ -129,7 +129,7 @@ const events = [
         "id" : 10, 
         "name": "Robo Invasion",
         "desc": "The robot alien invasion has fallen upon Manipal Dubai. How will you help stop the invasion? Come to the Robo Invasion and take the aliens under arrest. Using specially crafted spaceships, traverse the universe while battling against each space captain to see who can get the most aliens within the allocated time.",
-        "isTeam": 4,
+        "isTeam": 1,
         "faculty_coordinator": "Amit Mondal | Farzeen Hasharaf",
         "student_coordinators": "Vahin Reddy | Adithya Abhilash",
         "room": "Room B312",
@@ -151,6 +151,18 @@ const events = [
         "day2": "17th : 9:00 am - 2:00 pm",
         "judging_criteria": "Time taken to escape",
         "src" : "/css/posters/Find_the_Key.png"
+    },
+    {
+        "id" : 12, 
+        "name": "Drone Show",
+        "desc": ` we combine sight, sound, ai technology, and advanced drone flying algorithms that'll blow your minds; all while having a spooky halloween theme 👻🎃`,
+        "isTeam": 4,
+        "faculty_coordinator": "Amit Mondal",
+        "student_coordinators": "Ann Joseph | Abishek Vijay",
+        "room": "B306",
+        "day1": "16th : 1:30 pm - 3 30 pm & 7 pm - 8 pm",
+        "day2": "17th : 9:00 am - 1:00 pm",
+        "judging_criteria": "",
+        "src" : "/css/posters/Drone.jpg"
     }
-
 ];
