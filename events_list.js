@@ -151,6 +151,18 @@ const events = [
         "day2": "17th : 9:00 am - 2:00 pm",
         "judging_criteria": "Time taken to escape",
         "src" : "/css/posters/Find_the_Key.png"
+    },
+    {
+        "id" : 12, 
+        "name": "Drone Show",
+        "desc": ` we combine sight, sound, ai technology, and advanced drone flying algorithms that'll blow your minds; all while having a spooky halloween theme 👻🎃`,
+        "isTeam": 4,
+        "faculty_coordinator": "Amit Mondal",
+        "student_coordinators": "Ann Joseph | Abishek Vijay",
+        "room": "B306",
+        "day1": "16th : 1:30 pm - 3 30 pm & 7 pm - 8 pm",
+        "day2": "17th : 9:00 am - 1:00 pm",
+        "judging_criteria": "",
+        "src" : "/css/posters/Drone.jpg"
     }
-
 ];
